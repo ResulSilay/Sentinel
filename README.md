@@ -42,4 +42,4 @@ val report = root.getReport()
 Include the library in your **app module** `build.gradle`:
 
 ```gradle
-implementation("com.rs.kit:root:1.0.0.beta")
+implementation("com.github.ResulSilay:Sentinel:1.0.0.jitpack.beta")
