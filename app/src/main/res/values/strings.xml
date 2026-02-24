@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Sentinel</string>
+
+    <string name="security_status_safe">DEVICE SECURE</string>
+    <string name="security_status_risky">SECURITY BREACH!</string>
+    <string name="security_desc_safe">Your device environment is verified and safe for use.</string>
+    <string name="security_desc_risky">Root or tampering detected. Access may be limited.</string>
+
+    <string name="security_detail_title">Detailed Analysis</string>
+
+    <string name="check_binary_files">Binary Check</string>
+    <string name="check_root_apps">Superuser Apps</string>
+    <string name="check_system_tags">System Integrity</string>
+    <string name="check_debug_mode">USB Debugging</string>
+    <string name="check_emulator">Virtualization</string>
+    <string name="check_mount_points">Mount Analysis</string>
+    <string name="check_runtime_scan">Command Execution</string>
+    <string name="check_advanced_paths">Deep Directory Scan</string>
+
+    <string name="status_clean">CLEAN</string>
+    <string name="status_danger">RISKY</string>
+</resources>
