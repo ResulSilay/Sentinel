@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.rs.sentinel.screen.root.RootScreen
+import com.rs.sentinel.screen.SentinelScreen
 import com.rs.sentinel.ui.theme.SentinelTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize()
                 ) { innerPadding ->
-                    RootScreen(
+                    SentinelScreen(
                         modifier = Modifier.padding(paddingValues = innerPadding)
                     )
                 }

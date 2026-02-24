@@ -5,15 +5,15 @@ plugins {
 }
 
 android {
-    namespace = "com.rs.sentinel"
+    namespace = "com.rs.sentinel.app"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.rs.sentinel"
+        applicationId = "com.rs.sentinel.app"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0.0.beta"
+        versionName = "1.1.0.beta"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,8 +44,7 @@ android {
 
 dependencies {
 
-    implementation(project(":core"))
-    implementation(project(":kit:root"))
+    implementation(project(":sentinel"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -1,12 +1,17 @@
-package com.rs.kit.root.constant
+package com.rs.sentinel.constant
 
-internal object RootConst {
+object SentinelConst {
 
-    const val PROC_MOUNTS_PATH = "/proc/self/mounts"
+    const val PROC_MOUNTS_PATH = "/proc/mounts"
 
     const val TEST_KEYS_TAG = "test-keys"
 
-    val RUNTIME_COMMAND_SU = arrayOf("which", "su")
+    const val COMMAND_SU = "su"
+
+    const val COMMAND_WHICH = "which"
+
+
+    val RUNTIME_COMMAND_SU = arrayOf(COMMAND_WHICH, COMMAND_SU)
 
     val ROOT_BINARY_PATHS = arrayOf(
         "/system/app/Superuser.apk",
@@ -60,5 +65,14 @@ internal object RootConst {
         "goldfish",
         "vbox86",
         "sdk_gphone"
+    )
+
+    val HOOK_PACKAGES = arrayOf(
+        "de.robv.android.xposed",
+        "com.topjohnwu.lsposed",
+        "org.meowcat.edxposed.manager",
+        "com.saurik.substrate",
+        "com.devadvance.rootcloak",
+        "com.devadvance.rootcloakplus"
     )
 }

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.rs.kit.root"
+    namespace = "com.rs.kit.emulator"
     compileSdk = 36
 
     defaultConfig {
