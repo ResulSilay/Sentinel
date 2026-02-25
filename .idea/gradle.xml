@@ -12,7 +12,13 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/kit" />
+            <option value="$PROJECT_DIR$/kit/debug" />
+            <option value="$PROJECT_DIR$/kit/emulator" />
+            <option value="$PROJECT_DIR$/kit/hook" />
+            <option value="$PROJECT_DIR$/kit/location" />
             <option value="$PROJECT_DIR$/kit/root" />
+            <option value="$PROJECT_DIR$/kit/tamper" />
+            <option value="$PROJECT_DIR$/sentinel" />
           </set>
         </option>
       </GradleProjectSettings>

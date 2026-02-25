@@ -11,8 +11,11 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
+    @Suppress("UnstableApiUsage")
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    @Suppress("UnstableApiUsage")
     repositories {
         google()
         mavenCentral()
@@ -25,6 +28,8 @@ include(":sentinel")
 include(":core")
 include(":kit")
 include(":kit:root")
+include(":kit:tamper")
 include(":kit:debug")
 include(":kit:emulator")
 include(":kit:hook")
+include(":kit:location")

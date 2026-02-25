@@ -4,16 +4,24 @@ plugins {
 }
 
 android {
-    namespace = "com.rs.sentinel"
+    namespace = "com.rs.kit.tamper"
     compileSdk = 36
-
-    resourcePrefix = "sentinel_"
 
     defaultConfig {
         minSdk = 24
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        @Suppress("UnstableApiUsage")
+        externalNativeBuild {
+            cmake {
+                abiFilters("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path("src/main/cpp/CMakeLists.txt")
+        }
     }
 
     buildTypes {
@@ -37,12 +45,6 @@ android {
 }
 
 dependencies {
-    api(project(":core"))
 
-    implementation(project(":kit:root"))
-    implementation(project(":kit:tamper"))
-    implementation(project(":kit:emulator"))
-    implementation(project(":kit:debug"))
-    implementation(project(":kit:hook"))
-    implementation(project(":kit:location"))
+    implementation(project(":core"))
 }

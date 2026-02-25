@@ -40,10 +40,14 @@ internal fun SentinelScreen(
 ) {
     val context = LocalContext.current
     val sentinel = remember {
-        Sentinel.configure(
-            context = context,
-            block = Sentinel.Builder::all
-        )
+        Sentinel.configure(context = context) {
+            config {
+                packageName = listOf()
+                signature = listOf()
+            }
+
+            all()
+        }
     }
 
     val uiState by produceState<SentinelState>(initialValue = SentinelState.Loading) {
@@ -120,7 +124,8 @@ private fun SentinelContent(
                     SecurityType.ROOT to R.string.check_root,
                     SecurityType.DEBUGGER to R.string.check_debug_mode,
                     SecurityType.EMULATOR to R.string.check_emulator,
-                    SecurityType.HOOK to R.string.check_hook
+                    SecurityType.HOOK to R.string.check_hook,
+                    SecurityType.LOCATION to R.string.check_location,
                 )
 
                 Text(

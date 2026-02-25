@@ -1,14 +1,18 @@
 package com.rs.sentinel
 
 import android.content.Context
+import android.location.Location
 import com.rs.kit.debug.detector.DebugDetector
 import com.rs.kit.emulator.detector.EmulatorDetector
 import com.rs.kit.hook.detector.HookDetector
+import com.rs.kit.location.detector.MockLocationAppDetector
+import com.rs.kit.location.detector.MockLocationDetector
+import com.rs.kit.location.detector.MockLocationSettingDetector
 import com.rs.kit.root.detector.RootDetector
+import com.rs.kit.tamper.detector.TamperDetector
 import com.rs.sentinel.detector.SecurityDetector
 import com.rs.sentinel.model.SecurityReport
 import com.rs.sentinel.type.RiskLevel
-import kotlin.collections.mapNotNull
 
 class Sentinel private constructor(
     private val detectors: List<SecurityDetector>,
@@ -21,7 +25,7 @@ class Sentinel private constructor(
 
         val level = RiskLevel.fromScore(
             score = totalScore,
-            threshold = this.threshold
+            threshold = threshold
         )
 
         return SecurityReport(
@@ -31,14 +35,32 @@ class Sentinel private constructor(
         )
     }
 
-    class Builder(private val context: Context) {
+    class Builder(
+        private val context: Context,
+    ) {
 
         private val detectors = mutableListOf<SecurityDetector>()
 
-        private var threshold: Int = 80
+        private val config = Config(
+            threshold = DEFAULT_THRESHOLD
+        )
+
+        fun config(block: Config.() -> Unit) {
+            config.apply(block)
+        }
 
         fun root() {
             detectors.add(RootDetector(context = context))
+        }
+
+        fun tamper() {
+            detectors.add(
+                TamperDetector(
+                    context = context,
+                    packageName = config.packageName,
+                    signature = config.signature
+                )
+            )
         }
 
         fun emulator() {
@@ -53,20 +75,33 @@ class Sentinel private constructor(
             detectors.add(HookDetector())
         }
 
+        fun location() {
+            detectors.add(MockLocationSettingDetector(context = context))
+            detectors.add(MockLocationAppDetector(context = context))
+        }
+
+        fun location(location: Location) {
+            detectors.add(MockLocationDetector(location = location))
+        }
+
         fun all() {
             root()
+            tamper()
             emulator()
             debug()
             hook()
+            location()
         }
 
         fun build() = Sentinel(
             detectors = detectors.toList(),
-            threshold = threshold
+            threshold = config.threshold
         )
     }
 
     companion object {
+
+        private const val DEFAULT_THRESHOLD = 80
 
         inline fun configure(
             context: Context,

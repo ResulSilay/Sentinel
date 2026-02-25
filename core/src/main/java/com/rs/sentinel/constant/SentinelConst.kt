@@ -8,11 +8,6 @@ object SentinelConst {
 
     const val COMMAND_SU = "su"
 
-    const val COMMAND_WHICH = "which"
-
-
-    val RUNTIME_COMMAND_SU = arrayOf(COMMAND_WHICH, COMMAND_SU)
-
     val ROOT_BINARY_PATHS = arrayOf(
         "/system/app/Superuser.apk",
         "/sbin/su",

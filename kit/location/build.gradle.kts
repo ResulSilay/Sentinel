@@ -4,10 +4,8 @@ plugins {
 }
 
 android {
-    namespace = "com.rs.sentinel"
+    namespace = "com.rs.kit.location"
     compileSdk = 36
-
-    resourcePrefix = "sentinel_"
 
     defaultConfig {
         minSdk = 24
@@ -37,12 +35,6 @@ android {
 }
 
 dependencies {
-    api(project(":core"))
 
-    implementation(project(":kit:root"))
-    implementation(project(":kit:tamper"))
-    implementation(project(":kit:emulator"))
-    implementation(project(":kit:debug"))
-    implementation(project(":kit:hook"))
-    implementation(project(":kit:location"))
+    implementation(project(":core"))
 }

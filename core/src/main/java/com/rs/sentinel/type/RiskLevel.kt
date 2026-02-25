@@ -7,7 +7,7 @@ enum class RiskLevel {
 
     companion object {
 
-        fun fromScore(score: Int, threshold: Int = 80): RiskLevel = when {
+        fun fromScore(score: Int, threshold: Int): RiskLevel = when {
             score == 0 -> SAFE
             score >= threshold -> HIGH
             else -> MEDIUM

@@ -11,10 +11,10 @@
     <string name="score">Score</string>
 
     <string name="check_root">Root Access</string>
-    <string name="check_system_integrity">System Integrity</string>
     <string name="check_debug_mode">USB Debugging</string>
     <string name="check_emulator">Virtualization</string>
     <string name="check_hook">Hooking Detection</string>
+    <string name="check_location">Mock Location</string>
 
     <string name="status_clean">CLEAN</string>
     <string name="status_danger">RISKY</string>
