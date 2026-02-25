@@ -1,6 +1,25 @@
-# Sentinel
+<div align="center">
+
+<p align="center">
+  <img src="/art/logo.png" alt="Logo" width="200"/>
+</p>
+
+[![Android](https://img.shields.io/badge/Android-000000?style=for-the-badge&logo=android&logoColor=ffffff)](https://developer.android.com/)
+[![Security](https://img.shields.io/badge/Security-000000?style=for-the-badge&logo=bitwarden)](#)
+[![Toolkit](https://img.shields.io/badge/Toolkit-000000?style=for-the-badge&logo=hackthebox&logoColor=ffffff)](#)
+[![Gradle](https://img.shields.io/badge/Gradle-000000?style=for-the-badge&logo=gradle)](#)
+[![Version](https://img.shields.io/badge/1.1.0.beta-000000?style=for-the-badge&logo=stackblitz)](#)
 
 Lightweight Android Security Toolkit for protecting apps against tampering, reverse engineering, rooted devices, and insecure runtime environments.
+
+<!--
+<a href="https://play.google.com/store/apps/details?id=com.rs.sentinel.app">
+    <img src="art/google-play-badge.png" width="200" alt="sentinel"/>
+</a>
+-->
+
+</div>
+<br>
 
 ## Overview
 
