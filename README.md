@@ -34,12 +34,12 @@ It performs deep environmental analysis, calculates a unified risk score, and pr
 
 ## Features
 
-- 🔹 Modular detector architecture
-- 🔹 Unified risk scoring system
-- 🔹 Configurable threat threshold
-- 🔹 DSL-style configuration API
-- 🔹 Detailed security reporting
-- 🔹 Lightweight and high performance
+- ♦️ Modular detector architecture
+- ♦️ Unified risk scoring system
+- ♦️ Configurable threat threshold
+- ♦️ DSL-style configuration API
+- ♦️ Detailed security reporting
+- ♦️ Lightweight and high performance
 
 ## Quick Start
 
