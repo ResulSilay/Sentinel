@@ -15,7 +15,7 @@
 
     <string name="check_root">Root Access</string>
     <string name="check_debug_mode">USB Debugging</string>
-    <string name="check_emulator">Virtualization</string>
+    <string name="check_emulator">Emulator Detection</string>
     <string name="check_hook">Hooking Detection</string>
     <string name="check_location">Mock Location</string>
 
