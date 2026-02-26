@@ -2,7 +2,6 @@ package com.rs.kit.tamper.detector
 
 import android.content.Context
 import com.rs.sentinel.detector.SecurityDetector
-import com.rs.sentinel.ext.toHexString
 import com.rs.sentinel.model.Threat
 import com.rs.sentinel.type.SecurityType
 
@@ -18,8 +17,8 @@ class TamperDetector(
 
     private external fun verifyIntegrity(
         context: Context,
-        expectedPackage: String,
-        expectedSignature: String,
+        expectedPackage: ByteArray,
+        expectedSignature: ByteArray,
     ): Boolean
 
     override fun detect(): Threat? = when {
@@ -39,7 +38,7 @@ class TamperDetector(
 
     private fun checkSecurity(): Boolean = verifyIntegrity(
         context = context,
-        expectedPackage = packageName.orEmpty().toHexString(),
-        expectedSignature = signature.orEmpty().toHexString()
+        expectedPackage = packageName.orEmpty().toByteArray(),
+        expectedSignature = signature.orEmpty().toByteArray()
     )
 }

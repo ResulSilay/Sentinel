@@ -4,6 +4,9 @@
     <string name="security_status_safe">Device Secure</string>
     <string name="security_status_risky">Security Breach!</string>
 
+    <string name="package_name">Package Name</string>
+    <string name="package_signature">Signature</string>
+
     <string name="security_desc_safe">Environment verified. No threats detected.</string>
     <string name="security_desc_risky">Unauthorized access or tampering detected.</string>
 

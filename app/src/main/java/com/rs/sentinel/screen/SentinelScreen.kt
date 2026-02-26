@@ -16,6 +16,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,6 +32,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.rs.sentinel.Sentinel
 import com.rs.sentinel.app.R
+import com.rs.sentinel.ext.getAppPackageName
+import com.rs.sentinel.ext.getAppSignatureSHA256
+import com.rs.sentinel.ext.toByteList
 import com.rs.sentinel.model.SecurityReport
 import com.rs.sentinel.type.SecurityType
 
@@ -39,11 +43,15 @@ internal fun SentinelScreen(
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
+
+    val packageName = remember(context::getAppPackageName)
+    val signature = remember(context::getAppSignatureSHA256)
+
     val sentinel = remember {
         Sentinel.configure(context = context) {
             config {
-                packageName = listOf()
-                signature = listOf()
+                this.packageName = packageName.toByteList()
+                this.signature = signature.toByteList()
             }
 
             all()
@@ -70,7 +78,9 @@ internal fun SentinelScreen(
 
             SentinelContent(
                 modifier = modifier,
-                report = report
+                report = report,
+                packageName = packageName,
+                signature = signature
             )
         }
 
@@ -84,6 +94,8 @@ internal fun SentinelScreen(
 private fun SentinelContent(
     modifier: Modifier,
     report: SecurityReport,
+    packageName: String,
+    signature: String,
 ) {
     val isRisky = report.isCritical()
     val statusColor = if (isRisky) Color(0xFFE53935) else Color(0xFF43A047)
@@ -101,6 +113,27 @@ private fun SentinelContent(
             icon = statusIcon,
             color = statusColor
         )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
+            )
+        ) {
+            SecurityText(
+                label = stringResource(id = R.string.package_name),
+                value = packageName
+            )
+
+            HorizontalDivider()
+
+            SecurityText(
+                label = stringResource(id = R.string.package_signature),
+                value = signature
+            )
+        }
 
         Spacer(modifier = Modifier.height(32.dp))
 
@@ -189,14 +222,43 @@ private fun SecurityInfo(label: String, isFound: Boolean) {
             color = MaterialTheme.colorScheme.onSurface
         )
 
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Text(
+                modifier = Modifier.padding(end = 8.dp),
                 text = if (isFound) stringResource(R.string.status_danger) else stringResource(R.string.status_clean),
                 style = MaterialTheme.typography.labelSmall,
                 color = if (isFound) Color.Red else Color(0xFF4CAF50),
-                modifier = Modifier.padding(end = 8.dp)
             )
+
             Text(text = if (isFound) "❌" else "✅")
+        }
+    }
+}
+
+
+@Composable
+private fun SecurityText(label: String, value: String) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(all = 16.dp),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurface
+        )
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = value,
+                style = MaterialTheme.typography.labelSmall
+            )
         }
     }
 }
