@@ -12,11 +12,11 @@ class HookDetector : SecurityDetector {
         System.loadLibrary("sentinel-hook")
     }
 
-    private external fun isFridaDetectedNative(): Boolean
+    private external fun isFridaDetected(): Boolean
 
     override fun detect(): Threat? {
         when {
-            isFridaDetectedNative() -> {
+            isFridaDetected() -> {
                 return Threat(
                     type = SecurityType.HOOK,
                     description = "Frida artifacts found in Native memory",

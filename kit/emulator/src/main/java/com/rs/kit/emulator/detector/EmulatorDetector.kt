@@ -23,12 +23,16 @@ class EmulatorDetector : SecurityDetector {
         val propCheck = SentinelConst.EMULATOR_PROPS.any { buildDetails.contains(other = it) }
         val pipeCheck = SentinelConst.EMULATOR_PIPES.any { File(it).exists() }
 
-        return if (propCheck || pipeCheck) {
-            Threat(
-                type = SecurityType.EMULATOR,
-                description = "Emulator environment detected",
-                severity = 30
-            )
-        } else null
+        return when {
+            propCheck || pipeCheck -> {
+                Threat(
+                    type = SecurityType.EMULATOR,
+                    description = "Emulator environment detected",
+                    severity = 30
+                )
+            }
+
+            else -> null
+        }
     }
 }

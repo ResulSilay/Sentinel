@@ -15,6 +15,9 @@ class TamperDetector(
         System.loadLibrary("sentinel-tamper")
     }
 
+    private val isParamsNotBlank: Boolean
+        get() = packageName?.isNotEmpty() == true && signature?.isNotEmpty() == true
+
     private external fun verifyIntegrity(
         context: Context,
         expectedPackage: ByteArray,
@@ -22,7 +25,7 @@ class TamperDetector(
     ): Boolean
 
     override fun detect(): Threat? = when {
-        isParamsNotBlank() && checkSecurity() -> {
+        isParamsNotBlank && checkSecurity() -> {
             Threat(
                 type = SecurityType.TAMPER,
                 description = "Package tampering.",
@@ -32,9 +35,6 @@ class TamperDetector(
 
         else -> null
     }
-
-    private fun isParamsNotBlank(): Boolean =
-        packageName?.isNotEmpty() == true && signature?.isNotEmpty() == true
 
     private fun checkSecurity(): Boolean = verifyIntegrity(
         context = context,
