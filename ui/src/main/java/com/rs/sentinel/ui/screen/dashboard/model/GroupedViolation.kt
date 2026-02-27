@@ -1,4 +1,4 @@
-package com.rs.sentinel.screen.dashboard.model
+package com.rs.sentinel.ui.screen.dashboard.model
 
 import androidx.compose.runtime.Immutable
 import com.rs.sentinel.detector.Threat

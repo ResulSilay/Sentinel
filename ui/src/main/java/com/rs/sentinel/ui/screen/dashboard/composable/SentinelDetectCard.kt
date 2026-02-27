@@ -1,4 +1,4 @@
-package com.rs.sentinel.screen.dashboard.composable
+package com.rs.sentinel.ui.screen.dashboard.composable
 
 import android.graphics.drawable.Icon
 import androidx.compose.foundation.BorderStroke
@@ -38,7 +38,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.rs.sentinel.app.R
+import com.rs.sentinel.ui.R
 import com.rs.sentinel.detector.Threat
 import com.rs.sentinel.violation.SecurityViolation
 import kotlin.reflect.KClass

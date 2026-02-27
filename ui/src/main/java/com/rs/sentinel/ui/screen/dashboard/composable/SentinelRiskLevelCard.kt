@@ -1,4 +1,4 @@
-package com.rs.sentinel.screen.dashboard.composable
+package com.rs.sentinel.ui.screen.dashboard.composable
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.rs.sentinel.app.R
+import com.rs.sentinel.ui.R
 import com.rs.sentinel.type.RiskLevel
 import com.rs.sentinel.ui.component.RiskLevelBar
 

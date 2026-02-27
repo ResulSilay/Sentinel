@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Sentinel">
 
         <activity
-            android:name="com.rs.sentinel.MainActivity"
+            android:name="com.rs.sentinel.ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Sentinel">
 

@@ -1,4 +1,4 @@
-package com.rs.sentinel.screen.dashboard.composable
+package com.rs.sentinel.ui.screen.dashboard.composable
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,12 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.rs.sentinel.app.R
+import com.rs.sentinel.ui.R
 import com.rs.sentinel.detector.Threat
-import com.rs.sentinel.reflect.getAllViolations
-import com.rs.sentinel.reflect.getDynamicGroupName
-import com.rs.sentinel.screen.dashboard.SentinelDashboardState
-import com.rs.sentinel.screen.dashboard.model.GroupedViolation
+import com.rs.sentinel.ui.reflect.getAllViolations
+import com.rs.sentinel.ui.reflect.getDynamicGroupName
+import com.rs.sentinel.ui.screen.dashboard.SentinelDashboardState
+import com.rs.sentinel.ui.screen.dashboard.model.GroupedViolation
 import kotlin.collections.component1
 import kotlin.collections.component2
 

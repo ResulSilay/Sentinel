@@ -1,4 +1,4 @@
-package com.rs.sentinel.screen.dashboard
+package com.rs.sentinel.ui.screen.dashboard
 
 import com.rs.sentinel.report.SecurityReport
 

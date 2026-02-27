@@ -25,6 +25,7 @@ dependencyResolutionManagement {
 rootProject.name = "Sentinel"
 include(":app")
 include(":sentinel")
+include(":ui")
 include(":core")
 include(":kit")
 include(":kit:root")

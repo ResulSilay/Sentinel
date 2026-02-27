@@ -1,9 +1,10 @@
-package com.rs.sentinel.reflect
+package com.rs.sentinel.ui.reflect
 
 import kotlin.reflect.KClass
 import kotlin.reflect.full.isSubclassOf
 import kotlin.reflect.full.primaryConstructor
 import com.rs.sentinel.violation.SecurityViolation
+import kotlin.reflect.KParameter
 
 internal fun getAllViolations(): List<SecurityViolation> {
     val result = mutableListOf<SecurityViolation>()
@@ -64,6 +65,6 @@ internal fun getDynamicGroupName(violation: SecurityViolation): String {
 }
 
 @Suppress("SameReturnValue")
-private fun kotlin.reflect.KParameter.defaultValueOrNull(): Any? {
+private fun KParameter.defaultValueOrNull(): Any? {
     return if (this.isOptional) null else null
 }

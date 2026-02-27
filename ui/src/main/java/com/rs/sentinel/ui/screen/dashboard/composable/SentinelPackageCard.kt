@@ -1,4 +1,4 @@
-package com.rs.sentinel.screen.dashboard.composable
+package com.rs.sentinel.ui.screen.dashboard.composable
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
@@ -27,7 +27,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.rs.sentinel.app.R
+import com.rs.sentinel.ui.R
 
 @Composable
 internal fun SentinelPackageCard(

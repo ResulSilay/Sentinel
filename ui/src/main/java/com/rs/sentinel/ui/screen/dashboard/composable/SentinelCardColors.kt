@@ -1,4 +1,4 @@
-package com.rs.sentinel.screen.dashboard.composable
+package com.rs.sentinel.ui.screen.dashboard.composable
 
 import androidx.compose.ui.graphics.Color
 

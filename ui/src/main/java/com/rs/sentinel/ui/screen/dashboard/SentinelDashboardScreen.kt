@@ -1,4 +1,4 @@
-package com.rs.sentinel.screen.dashboard
+package com.rs.sentinel.ui.screen.dashboard
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,12 +23,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.rs.sentinel.Sentinel
-import com.rs.sentinel.app.R
+import com.rs.sentinel.ui.R
 import com.rs.sentinel.ext.getAppPackageName
 import com.rs.sentinel.ext.getAppSignatureSHA256
 import com.rs.sentinel.ext.toByteList
-import com.rs.sentinel.screen.dashboard.composable.SentinelHeader
-import com.rs.sentinel.screen.dashboard.composable.SentinelDetectors
+import com.rs.sentinel.ui.screen.dashboard.composable.SentinelHeader
+import com.rs.sentinel.ui.screen.dashboard.composable.SentinelDetectors
 import com.rs.sentinel.ui.ext.sentinelGradientBackground
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -63,7 +63,7 @@ internal fun SentinelDashboardScreen() {
     }
 
     Box(
-        modifier = Modifier.sentinelGradientBackground(
+        modifier = Modifier.Companion.sentinelGradientBackground(
             riskLevel = (uiState as? SentinelDashboardState.Success)?.report?.riskLevel
         )
     ) {
@@ -73,7 +73,7 @@ internal fun SentinelDashboardScreen() {
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
-                    CircularProgressIndicator()
+                    CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
                 }
             }
 

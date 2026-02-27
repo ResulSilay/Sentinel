@@ -41,7 +41,7 @@ android {
 
 dependencies {
 
-    implementation(project(":sentinel"))
+    implementation(project(":ui"))
 
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlin.reflect)
