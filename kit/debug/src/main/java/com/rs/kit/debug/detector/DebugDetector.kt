@@ -7,7 +7,7 @@ import android.os.Debug.isDebuggerConnected
 import com.rs.sentinel.constant.SentinelConst
 import com.rs.sentinel.detector.SecurityDetector
 import com.rs.sentinel.model.Threat
-import com.rs.sentinel.type.SecurityType
+import com.rs.sentinel.violation.SecurityViolation
 
 class DebugDetector(
     private val context: Context,
@@ -20,15 +20,11 @@ class DebugDetector(
 
         return when {
             isDebugger || isDebuggable -> Threat(
-                type = SecurityType.DEBUGGER,
-                description = "Debugger active",
-                severity = 80
+                violation = SecurityViolation.Debugger.Debuggable
             )
 
             isTestKeys -> Threat(
-                type = SecurityType.DEBUGGER,
-                description = "Test-keys build",
-                severity = 30
+                violation = SecurityViolation.Debugger.TestKeys
             )
 
             else -> null

@@ -36,7 +36,7 @@ import com.rs.sentinel.ext.getAppPackageName
 import com.rs.sentinel.ext.getAppSignatureSHA256
 import com.rs.sentinel.ext.toByteList
 import com.rs.sentinel.model.SecurityReport
-import com.rs.sentinel.type.SecurityType
+import com.rs.sentinel.violation.SecurityViolation
 
 @Composable
 internal fun SentinelScreen(
@@ -154,11 +154,11 @@ private fun SentinelContent(
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 val securityItems = listOf(
-                    SecurityType.ROOT to R.string.check_root,
-                    SecurityType.DEBUGGER to R.string.check_debug_mode,
-                    SecurityType.EMULATOR to R.string.check_emulator,
-                    SecurityType.HOOK to R.string.check_hook,
-                    SecurityType.LOCATION to R.string.check_location,
+                    SecurityViolation.Root::class to R.string.check_root,
+                    SecurityViolation.Debugger::class to R.string.check_debug_mode,
+                    SecurityViolation.Emulator::class to R.string.check_emulator,
+                    SecurityViolation.Hook::class to R.string.check_hook,
+                    SecurityViolation.Location::class to R.string.check_location,
                 )
 
                 Text(
@@ -166,10 +166,10 @@ private fun SentinelContent(
                     style = MaterialTheme.typography.titleMedium,
                 )
 
-                securityItems.forEach { (type, labelRes) ->
+                securityItems.forEach { (clazz, labelRes) ->
                     SecurityInfo(
                         label = stringResource(labelRes),
-                        isFound = report.hasThreatType(type)
+                        isFound = report.hasViolationCategory(category = clazz)
                     )
                 }
             }

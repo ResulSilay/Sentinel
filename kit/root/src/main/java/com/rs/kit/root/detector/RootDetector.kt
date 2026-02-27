@@ -3,7 +3,7 @@ package com.rs.kit.root.detector
 import android.content.Context
 import com.rs.sentinel.detector.SecurityDetector
 import com.rs.sentinel.model.Threat
-import com.rs.sentinel.type.SecurityType
+import com.rs.sentinel.violation.SecurityViolation
 
 class RootDetector(
     private val context: Context,
@@ -23,27 +23,19 @@ class RootDetector(
 
     override fun detect(): Threat? = when {
         checkApps(context = context) -> Threat(
-            type = SecurityType.ROOT,
-            description = "Root apps installed",
-            severity = 40
+            violation = SecurityViolation.Root.RootAppInstalled()
         )
 
         checkBinaries() -> Threat(
-            type = SecurityType.ROOT,
-            description = "Root binaries found",
-            severity = 50
+            violation = SecurityViolation.Root.SuBinaryFound,
         )
 
         checkMounts() -> Threat(
-            type = SecurityType.ROOT,
-            description = "Suspicious mount points",
-            severity = 45
+            violation = SecurityViolation.Root.SuspiciousMount(),
         )
 
         checkSuCommand() -> Threat(
-            type = SecurityType.ROOT,
-            description = "SU command executed",
-            severity = 60
+            violation = SecurityViolation.Root.SuCommandExecuted,
         )
 
         else -> null

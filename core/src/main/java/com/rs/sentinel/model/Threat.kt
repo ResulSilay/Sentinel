@@ -1,9 +1,7 @@
 package com.rs.sentinel.model
 
-import com.rs.sentinel.type.SecurityType
+import com.rs.sentinel.violation.SecurityViolation
 
 data class Threat(
-    val type: SecurityType,
-    val description: String,
-    val severity: Int,
+    val violation: SecurityViolation
 )

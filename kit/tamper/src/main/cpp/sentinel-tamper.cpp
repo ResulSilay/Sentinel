@@ -76,7 +76,32 @@ std::string sha256HexJNI(JNIEnv *env, jbyteArray dataArray) {
 }
 
 JNIEXPORT jboolean JNICALL
-Java_com_rs_kit_tamper_detector_TamperDetector_verifyIntegrity(
+Java_com_rs_kit_tamper_detector_TamperDetector_verifyPackage(
+    JNIEnv *env, jobject thiz, jobject context, jbyteArray expectedPackage) {
+  std::string expPkgStr = hexToString(bytesToHex(env, expectedPackage));
+
+  jclass contextClass = env->GetObjectClass(context);
+  jmethodID getPkgMethod =
+      env->GetMethodID(contextClass, "getPackageName", "()Ljava/lang/String;");
+  auto currentPackage = (jstring)env->CallObjectMethod(context, getPkgMethod);
+
+  std::string curPkgStr;
+  if (currentPackage) {
+    const char *tmp = env->GetStringUTFChars(currentPackage, nullptr);
+    curPkgStr = tmp ? tmp : "";
+    env->ReleaseStringUTFChars(currentPackage, tmp);
+    env->DeleteLocalRef(currentPackage);
+  }
+  env->DeleteLocalRef(contextClass);
+
+  LOGI("Expected package : %s", expPkgStr.c_str());
+  LOGI("Current package  : %s", curPkgStr.c_str());
+
+  return (expPkgStr == curPkgStr) ? JNI_TRUE : JNI_FALSE;
+}
+
+JNIEXPORT jboolean JNICALL
+Java_com_rs_kit_tamper_detector_TamperDetector_verifySignature(
     JNIEnv *env, jobject thiz, jobject context, jbyteArray expectedPackage,
     jbyteArray expectedSignature) {
   std::string expPkgStr = hexToString(bytesToHex(env, expectedPackage));
@@ -97,11 +122,6 @@ Java_com_rs_kit_tamper_detector_TamperDetector_verifyIntegrity(
 
   LOGI("Expected package : %s", expPkgStr.c_str());
   LOGI("Current package  : %s", curPkgStr.c_str());
-
-  if (expPkgStr != curPkgStr) {
-    env->DeleteLocalRef(contextClass);
-    return JNI_FALSE;
-  }
 
   jmethodID getPmMethod =
       env->GetMethodID(contextClass, "getPackageManager",

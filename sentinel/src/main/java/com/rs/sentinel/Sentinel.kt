@@ -12,7 +12,6 @@ import com.rs.kit.root.detector.RootDetector
 import com.rs.kit.tamper.detector.TamperDetector
 import com.rs.sentinel.detector.SecurityDetector
 import com.rs.sentinel.model.SecurityReport
-import com.rs.sentinel.type.RiskLevel
 
 class Sentinel private constructor(
     private val detectors: List<SecurityDetector>,
@@ -20,18 +19,11 @@ class Sentinel private constructor(
 ) {
 
     fun inspect(): SecurityReport {
-        val threats = detectors.mapNotNull { detector -> detector.detect() }
-        val totalScore = threats.sumOf { threat -> threat.severity }
-
-        val level = RiskLevel.fromScore(
-            score = totalScore,
-            threshold = threshold
-        )
+        val allThreats = detectors.mapNotNull { it.detect() }
 
         return SecurityReport(
-            score = totalScore,
-            threats = threats,
-            riskLevel = level
+            threats = allThreats,
+            threshold = threshold
         )
     }
 

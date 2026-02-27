@@ -4,7 +4,7 @@ import android.os.Build
 import com.rs.sentinel.constant.SentinelConst
 import com.rs.sentinel.detector.SecurityDetector
 import com.rs.sentinel.model.Threat
-import com.rs.sentinel.type.SecurityType
+import com.rs.sentinel.violation.SecurityViolation
 import java.io.File
 
 class EmulatorDetector : SecurityDetector {
@@ -20,15 +20,19 @@ class EmulatorDetector : SecurityDetector {
                         + Build.HARDWARE
                 ).lowercase()
 
-        val propCheck = SentinelConst.EMULATOR_PROPS.any { buildDetails.contains(other = it) }
-        val pipeCheck = SentinelConst.EMULATOR_PIPES.any { File(it).exists() }
+        val foundProp = SentinelConst.EMULATOR_PROPS.firstOrNull { buildDetails.contains(it) }
+        val foundPipe = SentinelConst.EMULATOR_PIPES.firstOrNull { File(it).exists() }
 
         return when {
-            propCheck || pipeCheck -> {
+            foundPipe != null -> {
                 Threat(
-                    type = SecurityType.EMULATOR,
-                    description = "Emulator environment detected",
-                    severity = 30
+                    violation = SecurityViolation.Emulator.Detected(name = "Pipe: $foundPipe"),
+                )
+            }
+
+            foundProp != null -> {
+                Threat(
+                    violation = SecurityViolation.Emulator.Detected(name = "Prop: $foundProp"),
                 )
             }
 

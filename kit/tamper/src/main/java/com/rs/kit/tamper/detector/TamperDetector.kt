@@ -3,7 +3,7 @@ package com.rs.kit.tamper.detector
 import android.content.Context
 import com.rs.sentinel.detector.SecurityDetector
 import com.rs.sentinel.model.Threat
-import com.rs.sentinel.type.SecurityType
+import com.rs.sentinel.violation.SecurityViolation
 
 class TamperDetector(
     private val context: Context,
@@ -15,28 +15,39 @@ class TamperDetector(
         System.loadLibrary("sentinel-tamper")
     }
 
-    private val isParamsNotBlank: Boolean
-        get() = packageName?.isNotEmpty() == true && signature?.isNotEmpty() == true
+    private external fun verifyPackage(
+        context: Context,
+        expectedPackage: ByteArray,
+    ): Boolean
 
-    private external fun verifyIntegrity(
+    private external fun verifySignature(
         context: Context,
         expectedPackage: ByteArray,
         expectedSignature: ByteArray,
     ): Boolean
 
     override fun detect(): Threat? = when {
-        isParamsNotBlank && checkSecurity() -> {
+        isPackageValid() -> {
             Threat(
-                type = SecurityType.TAMPER,
-                description = "Package tampering.",
-                severity = 100
+                violation = SecurityViolation.Tamper.PackageNameChanged
+            )
+        }
+
+        isSignatureValid() -> {
+            Threat(
+                violation = SecurityViolation.Tamper.SignatureMismatch
             )
         }
 
         else -> null
     }
 
-    private fun checkSecurity(): Boolean = verifyIntegrity(
+    private fun isPackageValid(): Boolean = verifyPackage(
+        context = context,
+        expectedPackage = packageName.orEmpty().toByteArray()
+    )
+
+    private fun isSignatureValid(): Boolean = verifySignature(
         context = context,
         expectedPackage = packageName.orEmpty().toByteArray(),
         expectedSignature = signature.orEmpty().toByteArray()
