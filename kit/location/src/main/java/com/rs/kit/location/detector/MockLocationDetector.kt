@@ -3,19 +3,21 @@ package com.rs.kit.location.detector
 import android.location.Location
 import android.os.Build
 import com.rs.sentinel.detector.SecurityDetector
-import com.rs.sentinel.model.Threat
+import com.rs.sentinel.detector.Threat
 import com.rs.sentinel.violation.SecurityViolation
 
 class MockLocationDetector(
     private val location: Location,
 ) : SecurityDetector {
 
-    override fun detect(): Threat? = when {
-        isLocationMock() -> Threat(
-            violation = SecurityViolation.Location.MockLocationDetected
-        )
-
-        else -> null
+    override fun detect(): List<Threat> = buildList {
+        if (isLocationMock()) {
+            add(
+                Threat(
+                    violation = SecurityViolation.Location.MockLocationDetected
+                )
+            )
+        }
     }
 
     private fun isLocationMock(): Boolean =

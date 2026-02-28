@@ -1,4 +1,4 @@
-package com.rs.sentinel.model
+package com.rs.sentinel.detector
 
 import com.rs.sentinel.violation.SecurityViolation
 

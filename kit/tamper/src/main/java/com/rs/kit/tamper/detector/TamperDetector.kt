@@ -2,7 +2,7 @@ package com.rs.kit.tamper.detector
 
 import android.content.Context
 import com.rs.sentinel.detector.SecurityDetector
-import com.rs.sentinel.model.Threat
+import com.rs.sentinel.detector.Threat
 import com.rs.sentinel.violation.SecurityViolation
 
 class TamperDetector(
@@ -26,20 +26,22 @@ class TamperDetector(
         expectedSignature: ByteArray,
     ): Boolean
 
-    override fun detect(): Threat? = when {
-        isPackageValid() -> {
-            Threat(
-                violation = SecurityViolation.Tamper.PackageNameChanged
+    override fun detect(): List<Threat> = buildList {
+        if (!isPackageValid()) {
+            add(
+                Threat(
+                    violation = SecurityViolation.Tamper.PackageNameChanged
+                )
             )
         }
 
-        isSignatureValid() -> {
-            Threat(
-                violation = SecurityViolation.Tamper.SignatureMismatch
+        if (!isSignatureValid()) {
+            add(
+                Threat(
+                    violation = SecurityViolation.Tamper.SignatureMismatch
+                )
             )
         }
-
-        else -> null
     }
 
     private fun isPackageValid(): Boolean = verifyPackage(

@@ -2,7 +2,7 @@ package com.rs.kit.root.detector
 
 import android.content.Context
 import com.rs.sentinel.detector.SecurityDetector
-import com.rs.sentinel.model.Threat
+import com.rs.sentinel.detector.Threat
 import com.rs.sentinel.violation.SecurityViolation
 
 class RootDetector(
@@ -21,24 +21,38 @@ class RootDetector(
 
     external fun checkSuCommand(): Boolean
 
-    override fun detect(): Threat? = when {
-        checkApps(context = context) -> Threat(
-            violation = SecurityViolation.Root.RootAppInstalled()
-        )
+    override fun detect(): List<Threat> = buildList {
+        if (checkApps(context = context)) {
+            add(
+                Threat(
+                    violation = SecurityViolation.Root.RootAppInstalled()
+                )
+            )
+        }
 
-        checkBinaries() -> Threat(
-            violation = SecurityViolation.Root.SuBinaryFound,
-        )
+        if (checkBinaries()) {
+            add(
+                Threat(
+                    violation = SecurityViolation.Root.SuBinaryFound
+                )
+            )
+        }
 
-        checkMounts() -> Threat(
-            violation = SecurityViolation.Root.SuspiciousMount(),
-        )
+        if (checkMounts()) {
+            add(
+                Threat(
+                    violation = SecurityViolation.Root.SuspiciousMount()
+                )
+            )
+        }
 
-        checkSuCommand() -> Threat(
-            violation = SecurityViolation.Root.SuCommandExecuted,
-        )
-
-        else -> null
+        if (checkSuCommand()) {
+            add(
+                Threat(
+                    violation = SecurityViolation.Root.SuCommandExecuted
+                )
+            )
+        }
     }
 }
 

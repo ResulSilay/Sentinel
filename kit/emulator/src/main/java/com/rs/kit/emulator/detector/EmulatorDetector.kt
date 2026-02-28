@@ -3,13 +3,13 @@ package com.rs.kit.emulator.detector
 import android.os.Build
 import com.rs.sentinel.constant.SentinelConst
 import com.rs.sentinel.detector.SecurityDetector
-import com.rs.sentinel.model.Threat
+import com.rs.sentinel.detector.Threat
 import com.rs.sentinel.violation.SecurityViolation
 import java.io.File
 
 class EmulatorDetector : SecurityDetector {
 
-    override fun detect(): Threat? {
+    override fun detect(): List<Threat> {
         val buildDetails = (
                 Build.FINGERPRINT
                         + Build.DEVICE
@@ -20,23 +20,25 @@ class EmulatorDetector : SecurityDetector {
                         + Build.HARDWARE
                 ).lowercase()
 
-        val foundProp = SentinelConst.EMULATOR_PROPS.firstOrNull { buildDetails.contains(it) }
-        val foundPipe = SentinelConst.EMULATOR_PIPES.firstOrNull { File(it).exists() }
+        val pipe = SentinelConst.EMULATOR_PIPES.firstOrNull { File(it).exists() }
+        val prop = SentinelConst.EMULATOR_PROPS.firstOrNull { buildDetails.contains(it) }
 
-        return when {
-            foundPipe != null -> {
-                Threat(
-                    violation = SecurityViolation.Emulator.Detected(name = "Pipe: $foundPipe"),
+        return buildList {
+            if (pipe != null) {
+                add(
+                    Threat(
+                        violation = SecurityViolation.Emulator.Detected(name = "Pipe: $pipe")
+                    )
                 )
             }
 
-            foundProp != null -> {
-                Threat(
-                    violation = SecurityViolation.Emulator.Detected(name = "Prop: $foundProp"),
+            if (prop != null) {
+                add(
+                    Threat(
+                        violation = SecurityViolation.Emulator.Detected(name = "Prop: $prop")
+                    )
                 )
             }
-
-            else -> null
         }
     }
 }

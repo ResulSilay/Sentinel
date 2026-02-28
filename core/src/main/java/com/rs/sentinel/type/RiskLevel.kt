@@ -8,15 +8,11 @@ enum class RiskLevel {
 
     companion object {
 
-        fun fromScore(score: Int, threshold: Int): RiskLevel {
-            val totalPenalty = 100 - score
-
-            return when {
-                totalPenalty == 0 -> SAFE
-                totalPenalty >= threshold -> HIGH
-                totalPenalty >= threshold / 2 -> MEDIUM
-                else -> LOW
-            }
+        fun getLevel(severity: Int, threshold: Int): RiskLevel = when {
+            severity == 0 -> SAFE
+            severity >= threshold -> HIGH
+            severity >= threshold / 2 -> MEDIUM
+            else -> LOW
         }
     }
 }

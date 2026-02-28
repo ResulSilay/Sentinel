@@ -30,12 +30,12 @@ Lightweight Android Security Toolkit for protecting apps against tampering, reve
 - Debugging sessions
 - Hooking frameworks
 
-It performs deep environmental analysis, calculates a unified risk score, and provides a detailed security report to help protect your application.
+It performs deep environmental analysis, calculates a unified risk severity, and provides a detailed security report to help protect your application.
 
 ## Features
 
-- ♦️ Modular detector architecture
-- ♦️ Unified risk scoring system
+- ♦️ Modular detector architecture – easily extendable with different security checks
+- ♦️ Total severity-based risk assessment system
 - ♦️ Configurable threat threshold
 - ♦️ DSL-style configuration API
 - ♦️ Detailed security reporting
@@ -82,11 +82,16 @@ if (report.hasThreatType(SecurityType.ROOT)) {
 
 ## Summary
 
-- **`inspect()`** → Performs a deep environmental analysis using all active detectors.
-- **`isSafe()`** → Returns `true` only if the risk level is `SAFE` (total score is 0).
-- **`isCritical()`** → Returns `true` if the score meets or exceeds the defined threshold (`HIGH`).
-- **`hasThreatType(type)`** → Checks if a specific threat type (ROOT, EMULATOR, DEBUG, HOOK) was detected in the scan.
-- **`riskLevel`** → Returns the categorized status: `SAFE`, `MEDIUM`, or `HIGH` based on the score and threshold.
+- **Comprehensive environment scanning:** Detects threats such as Root, Emulator, Debugger, Hook, and Mock Location.
+- **Total severity-based risk assessment:** All detected threats’ severity values are summed to calculate the system’s risk level.
+- **Risk Levels:** SAFE, LOW, MEDIUM, HIGH.
+- **Easy logging:** Log all threats and the overall risk level effortlessly.
+
+## API
+
+- **`inspect()`** → Performs a full system security analysis using all active detectors and returns a `SecurityReport` containing detected threats and their total severity.
+- **`isSafe()`** → Returns `true` only if no threats are detected (`totalSeverity == 0`).
+- **`isCritical()`** → Returns `true` if the total severity exceeds the defined threshold, indicating `HIGH` risk.
 
 ## Installation
 

@@ -3,22 +3,24 @@ package com.rs.kit.location.detector
 import android.content.Context
 import android.content.pm.PackageManager
 import com.rs.sentinel.detector.SecurityDetector
-import com.rs.sentinel.model.Threat
+import com.rs.sentinel.detector.Threat
 import com.rs.sentinel.violation.SecurityViolation
 
 class MockLocationAppDetector(
     private val context: Context,
 ) : SecurityDetector {
 
-    override fun detect(): Threat? {
+    override fun detect(): List<Threat> {
         val mockLocationPackages = detectMockLocationPackages()
 
-        return when {
-            mockLocationPackages.isNotEmpty() -> Threat(
-                violation = SecurityViolation.Location.MockAppInstalled(packages = mockLocationPackages)
-            )
-
-            else -> null
+        return buildList {
+            if (mockLocationPackages.isNotEmpty()) {
+                add(
+                    Threat(
+                        violation = SecurityViolation.Location.MockAppInstalled(packages = mockLocationPackages)
+                    )
+                )
+            }
         }
     }
 

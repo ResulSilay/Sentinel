@@ -1,5 +1,6 @@
 package com.rs.sentinel.screen
 
+import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -35,7 +36,7 @@ import com.rs.sentinel.app.R
 import com.rs.sentinel.ext.getAppPackageName
 import com.rs.sentinel.ext.getAppSignatureSHA256
 import com.rs.sentinel.ext.toByteList
-import com.rs.sentinel.model.SecurityReport
+import com.rs.sentinel.report.SecurityReport
 import com.rs.sentinel.violation.SecurityViolation
 
 @Composable
@@ -75,6 +76,11 @@ internal fun SentinelScreen(
 
         is SentinelState.Success -> {
             val report = state.report
+
+            sentinel.log(
+                report = report,
+                output = { message -> Log.e("Sentinel", message) }
+            )
 
             SentinelContent(
                 modifier = modifier,
@@ -155,14 +161,15 @@ private fun SentinelContent(
             Column(modifier = Modifier.padding(16.dp)) {
                 val securityItems = listOf(
                     SecurityViolation.Root::class to R.string.check_root,
+                    SecurityViolation.Tamper::class to R.string.check_hook,
+                    SecurityViolation.Hook::class to R.string.check_hook,
                     SecurityViolation.Debugger::class to R.string.check_debug_mode,
                     SecurityViolation.Emulator::class to R.string.check_emulator,
-                    SecurityViolation.Hook::class to R.string.check_hook,
                     SecurityViolation.Location::class to R.string.check_location,
                 )
 
                 Text(
-                    text = "${stringResource(id = R.string.score)}: ${report.score} - ${report.riskLevel.name}",
+                    text = "${stringResource(id = R.string.severity)}: ${report.severity} - ${report.riskLevel.name}",
                     style = MaterialTheme.typography.titleMedium,
                 )
 

@@ -11,12 +11,13 @@
     <string name="security_desc_risky">Unauthorized access or tampering detected.</string>
 
     <string name="security_detail_title">Analysis Details</string>
-    <string name="score">Score</string>
+    <string name="severity">Severity</string>
 
     <string name="check_root">Root Access</string>
     <string name="check_debug_mode">USB Debugging</string>
     <string name="check_emulator">Emulator Detection</string>
     <string name="check_hook">Hooking Detection</string>
+    <string name="check_tamper">Tamper Detection</string>
     <string name="check_location">Mock Location</string>
 
     <string name="status_clean">CLEAN</string>

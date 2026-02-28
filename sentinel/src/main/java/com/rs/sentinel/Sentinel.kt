@@ -11,26 +11,34 @@ import com.rs.kit.location.detector.MockLocationSettingDetector
 import com.rs.kit.root.detector.RootDetector
 import com.rs.kit.tamper.detector.TamperDetector
 import com.rs.sentinel.detector.SecurityDetector
-import com.rs.sentinel.model.SecurityReport
+import com.rs.sentinel.logger.Logger
+import com.rs.sentinel.report.SecurityReport
 
 class Sentinel private constructor(
     private val detectors: List<SecurityDetector>,
     private val threshold: Int,
 ) {
+    private val logger by lazy(::Logger)
 
     fun inspect(): SecurityReport {
-        val allThreats = detectors.mapNotNull { it.detect() }
+        val threads = detectors.flatMap { detector -> detector.detect().orEmpty() }
 
         return SecurityReport(
-            threats = allThreats,
+            threats = threads,
             threshold = threshold
+        )
+    }
+
+    fun log(report: SecurityReport, output: (String) -> Unit) {
+        logger.log(
+            report = report,
+            logger = output
         )
     }
 
     class Builder(
         private val context: Context,
     ) {
-
         private val detectors = mutableListOf<SecurityDetector>()
 
         private val config = Config(

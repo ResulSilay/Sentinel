@@ -2,51 +2,51 @@ package com.rs.sentinel.violation
 
 sealed class SecurityViolation(val severity: Int) {
 
-    sealed class Root(severity: Int) : SecurityViolation(severity) {
+    sealed class Root(severity: Int) : SecurityViolation(severity = severity) {
 
-        object SuBinaryFound : Root(60)
+        object SuBinaryFound : Root(severity = 85)
 
-        object SuCommandExecuted : Root(70)
+        object SuCommandExecuted : Root(severity = 85)
 
-        data class SuspiciousMount(val mountPoint: String? = null) : Root(45)
+        data class SuspiciousMount(val mountPoint: String? = null) : Root(severity = 80)
 
-        data class RootAppInstalled(val packageName: String? = null) : Root(40)
+        data class RootAppInstalled(val packageName: String? = null) : Root(severity = 50)
     }
 
-    sealed class Tamper(severity: Int) : SecurityViolation(severity) {
+    sealed class Tamper(severity: Int) : SecurityViolation(severity = severity) {
 
-        object PackageNameChanged : Tamper(80)
+        object PackageNameChanged : Tamper(severity = 80)
 
-        object DexIntegrityFailed : Tamper(90)
+        object DexIntegrityFailed : Tamper(severity = 90)
 
-        object SignatureMismatch : Tamper(100)
+        object SignatureMismatch : Tamper(severity = 100)
     }
 
-    sealed class Hook(severity: Int) : SecurityViolation(severity) {
+    sealed class Hook(severity: Int) : SecurityViolation(severity = severity) {
 
         data class FrameworkDetected(val name: String? = null) : Hook(severity = 90)
 
-        object FridaDetected : Root(95)
+        object FridaDetected : Root(severity = 95)
     }
 
-    sealed class Emulator(severity: Int) : SecurityViolation(severity) {
+    sealed class Emulator(severity: Int) : SecurityViolation(severity = severity) {
 
-        data class Detected(val name: String? = null) : Emulator(30)
+        data class Detected(val name: String? = null) : Emulator(severity = 30)
     }
 
-    sealed class Debugger(severity: Int) : SecurityViolation(severity) {
+    sealed class Debugger(severity: Int) : SecurityViolation(severity = severity) {
 
-        object Debuggable : Emulator(30)
+        object Debuggable : Emulator(severity = 30)
 
-        object TestKeys : Emulator(30)
+        object TestKeys : Emulator(severity = 30)
     }
 
-    sealed class Location(severity: Int) : SecurityViolation(severity) {
+    sealed class Location(severity: Int) : SecurityViolation(severity = severity) {
 
-        object MockSettingEnabled : Location(60)
+        object MockSettingEnabled : Location(severity = 60)
 
-        object MockLocationDetected : Location(80)
+        object MockLocationDetected : Location(severity = 80)
 
-        data class MockAppInstalled(val packages: List<String>) : Location(40)
+        data class MockAppInstalled(val packages: List<String>) : Location(severity = 40)
     }
 }

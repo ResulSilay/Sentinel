@@ -4,19 +4,21 @@ import android.app.AppOpsManager
 import android.content.Context
 import android.os.Build
 import com.rs.sentinel.detector.SecurityDetector
-import com.rs.sentinel.model.Threat
+import com.rs.sentinel.detector.Threat
 import com.rs.sentinel.violation.SecurityViolation
 
 class MockLocationSettingDetector(
     private val context: Context,
 ) : SecurityDetector {
 
-    override fun detect(): Threat? = when {
-        isMockSettingEnabled() -> Threat(
-            violation = SecurityViolation.Location.MockSettingEnabled
-        )
-
-        else -> null
+    override fun detect(): List<Threat> = buildList {
+        if (isMockSettingEnabled()) {
+            add(
+                Threat(
+                    violation = SecurityViolation.Location.MockSettingEnabled
+                )
+            )
+        }
     }
 
     private fun isMockSettingEnabled(): Boolean {

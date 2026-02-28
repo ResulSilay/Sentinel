@@ -1,6 +1,6 @@
 package com.rs.sentinel.screen
 
-import com.rs.sentinel.model.SecurityReport
+import com.rs.sentinel.report.SecurityReport
 
 sealed interface SentinelState {
 
