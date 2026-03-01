@@ -13,7 +13,7 @@ data class SentinelCardColors(
 val SafeCardColors = SentinelCardColors(
     borderGradient = listOf(
         Color(0xFF5B5B5B),
-        Color(0xFF818181),
+        Color(0xFF656565),
         Color(0xFF5B5B5B)
     ),
     backgroundGradient = listOf(

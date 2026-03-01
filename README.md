@@ -108,5 +108,5 @@ dependencyResolutionManagement {
 Include the library in your **app module** `build.gradle`:
 
 ```gradle
-implementation("com.github.ResulSilay:Sentinel:1.2.0.jitpack.beta")
+implementation("com.github.ResulSilay:Sentinel:1.2.1.jitpack.beta")
 ```

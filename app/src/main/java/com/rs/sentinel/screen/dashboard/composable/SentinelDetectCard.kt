@@ -194,7 +194,7 @@ private fun SentinelDetectCardItem(
         Text(
             modifier = Modifier.weight(weight = 1f),
             text = title,
-            style = MaterialTheme.typography.bodyMedium,
+            style = MaterialTheme.typography.bodySmall,
             color = colors.textColor,
             textAlign = TextAlign.Start
         )

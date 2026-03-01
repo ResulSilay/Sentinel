@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "com.rs.sentinel.app"
-    compileSdk = 36
+    compileSdk = Config.Version.COMPILE_SDK
 
     defaultConfig {
         applicationId = "com.rs.sentinel.app"
-        minSdk = 24
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.1.0.beta"
+        minSdk = Config.Version.MIN_SDK
+        targetSdk = Config.Version.TARGET_SDK
+        versionCode = Config.Version.CODE
+        versionName = Config.Version.NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,12 +30,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = "11"
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     buildFeatures {
@@ -47,8 +43,8 @@ dependencies {
 
     implementation(project(":sentinel"))
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.21")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:2.0.21")
+    implementation(libs.kotlin.stdlib)
+    implementation(libs.kotlin.reflect)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -57,6 +53,7 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material.icons)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
