@@ -103,9 +103,9 @@ Java_com_rs_kit_tamper_detector_TamperDetector_verifyPackage(
 JNIEXPORT jboolean JNICALL
 Java_com_rs_kit_tamper_detector_TamperDetector_verifySignature(
     JNIEnv *env, jobject thiz, jobject context, jbyteArray expectedPackage,
-    jbyteArray expectedSignature) {
+    jbyteArray expectedPackageSignature) {
   std::string expPkgStr = hexToString(bytesToHex(env, expectedPackage));
-  std::string expSigStr = hexToString(bytesToHex(env, expectedSignature));
+  std::string expSigStr = hexToString(bytesToHex(env, expectedPackageSignature));
 
   jclass contextClass = env->GetObjectClass(context);
   jmethodID getPkgMethod =

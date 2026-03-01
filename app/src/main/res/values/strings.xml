@@ -10,8 +10,10 @@
     <string name="security_desc_safe">Environment verified. No threats detected.</string>
     <string name="security_desc_risky">Unauthorized access or tampering detected.</string>
 
-    <string name="security_detail_title">Analysis Details</string>
+    <string name="risk_level">Risk Level</string>
     <string name="severity">Severity</string>
+    <string name="total_severity">Total Severity</string>
+    <string name="detectors">Detectors</string>
 
     <string name="check_root">Root Access</string>
     <string name="check_debug_mode">USB Debugging</string>
@@ -22,4 +24,10 @@
 
     <string name="status_clean">CLEAN</string>
     <string name="status_danger">RISKY</string>
+    <string name="error">Error</string>
+
+    <string name="risk_safe">Device is safe, no risk detected.</string>
+    <string name="risk_low">Low risk present, proceed with caution.</string>
+    <string name="risk_medium">Medium risk detected, precautions recommended.</string>
+    <string name="risk_high">High risk detected, immediate action required.</string>
 </resources>

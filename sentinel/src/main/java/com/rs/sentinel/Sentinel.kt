@@ -58,7 +58,7 @@ class Sentinel private constructor(
                 TamperDetector(
                     context = context,
                     packageName = config.packageName,
-                    signature = config.signature
+                    packageSignature = config.packageSignature
                 )
             )
         }

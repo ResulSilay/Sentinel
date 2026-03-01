@@ -8,7 +8,7 @@ import com.rs.sentinel.violation.SecurityViolation
 class TamperDetector(
     private val context: Context,
     private val packageName: List<Byte>?,
-    private val signature: List<Byte>?,
+    private val packageSignature: List<Byte>?,
 ) : SecurityDetector {
 
     init {
@@ -23,7 +23,7 @@ class TamperDetector(
     private external fun verifySignature(
         context: Context,
         expectedPackage: ByteArray,
-        expectedSignature: ByteArray,
+        expectedPackageSignature: ByteArray,
     ): Boolean
 
     override fun detect(): List<Threat> = buildList {
@@ -52,6 +52,6 @@ class TamperDetector(
     private fun isSignatureValid(): Boolean = verifySignature(
         context = context,
         expectedPackage = packageName.orEmpty().toByteArray(),
-        expectedSignature = signature.orEmpty().toByteArray()
+        expectedPackageSignature = packageSignature.orEmpty().toByteArray()
     )
 }
