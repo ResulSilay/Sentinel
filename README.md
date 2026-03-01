@@ -18,6 +18,10 @@ Lightweight Android Security Toolkit for protecting apps against tampering, reve
 </a>
 -->
 
+<p align="center">
+  <img alt="image" src="art/header.png" />
+</p>
+
 </div>
 <br>
 
