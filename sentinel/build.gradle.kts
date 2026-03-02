@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.maven.publish)
 }
 
 android {
@@ -29,6 +30,51 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    kotlin {
+        jvmToolchain(jdkVersion = 21)
+    }
+
+    publishing {
+        singleVariant(variantName = "release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+        vendor = JvmVendorSpec.ADOPTIUM
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>(name = "release") {
+                groupId = Config.GROUP_ID
+                artifactId = Config.ARTIFACT_ID
+                version = Config.Version.NAME
+
+                afterEvaluate {
+                    from(components["release"])
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/ResulSilay/Sentinel")
+                credentials {
+                    username = System.getenv("GITHUB_USER")
+                    password = System.getenv("GITHUB_PWD")
+                }
+            }
+        }
     }
 }
 

@@ -1,4 +1,8 @@
 pluginManagement {
+    plugins {
+        id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+    }
+
     repositories {
         google {
             content {
@@ -30,7 +34,7 @@ include(":core")
 include(":kit")
 include(":kit:root")
 include(":kit:tamper")
+include(":kit:hook")
 include(":kit:debug")
 include(":kit:emulator")
-include(":kit:hook")
 include(":kit:location")

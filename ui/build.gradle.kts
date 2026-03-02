@@ -35,6 +35,10 @@ android {
     buildFeatures {
         compose = true
     }
+
+    kotlin {
+        jvmToolchain(jdkVersion = 21)
+    }
 }
 
 dependencies {

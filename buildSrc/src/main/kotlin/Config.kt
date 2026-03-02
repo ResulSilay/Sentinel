@@ -1,5 +1,7 @@
 object Config {
 
+    const val GROUP_ID = "com.rs"
+    const val ARTIFACT_ID = "sentinel"
     const val IS_MINIFY_ENABLED = true
 
     object Version {
@@ -8,6 +10,6 @@ object Config {
         const val TARGET_SDK = 36
         const val COMPILE_SDK = 36
         const val CODE = 2
-        const val NAME = "1.2.2.beta"
+        const val NAME = "1.0.0.alpha"
     }
 }
