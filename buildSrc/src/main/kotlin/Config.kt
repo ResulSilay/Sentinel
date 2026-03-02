@@ -1,5 +1,7 @@
 object Config {
 
+    const val IS_MINIFY_ENABLED = true
+
     object Version {
 
         const val MIN_SDK = 24
