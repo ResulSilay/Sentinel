@@ -1,54 +1,40 @@
+import com.android.build.api.dsl.androidLibrary
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.android.kotlin.multiplatform.library)
+    id("sentinel-publish")
 }
 
-android {
-    namespace = "com.rs.sentinel"
-    compileSdk = Config.Version.COMPILE_SDK
+group = Config.Publishing.GROUP_ID
+version = Config.Version.NAME
 
-    resourcePrefix = "sentinel_"
-
-    defaultConfig {
+kotlin {
+    androidLibrary {
+        namespace = Config.NAMESPACE
+        compileSdk = Config.Version.COMPILE_SDK
         minSdk = Config.Version.MIN_SDK
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
+        withJava()
 
-    buildTypes {
-        release {
-            isMinifyEnabled = Config.IS_MINIFY_ENABLED
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        compilations.configureEach {
+            compilerOptions.configure {
+                jvmTarget.set(
+                    JvmTarget.JVM_11
+                )
+            }
         }
     }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+    sourceSets {
+        commonMain.dependencies {
+            api(project(":sentinel-core"))
+            api(project(":sentinel-identity"))
+            api(project(":sentinel-kit:detector"))
+        }
     }
-
-    kotlin {
-        jvmToolchain(jdkVersion = 21)
-    }
-}
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-        vendor = JvmVendorSpec.ADOPTIUM
-    }
-}
-
-dependencies {
-
-    api(project(":core"))
-    api(project(":kit:root"))
-    api(project(":kit:tamper"))
-    api(project(":kit:emulator"))
-    api(project(":kit:debug"))
-    api(project(":kit:hook"))
-    api(project(":kit:location"))
 }

@@ -1,0 +1,54 @@
+package com.rs
+
+import android.graphics.Color.TRANSPARENT
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
+import sentinel.Sentinel
+import sentinel.configure
+import sentinel.core.ext.toByteList
+
+class MainActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.auto(
+                lightScrim = TRANSPARENT,
+                darkScrim = TRANSPARENT
+            ),
+            navigationBarStyle = SystemBarStyle.light(
+                scrim = TRANSPARENT,
+                darkScrim = TRANSPARENT
+            )
+        )
+
+        super.onCreate(savedInstanceState)
+
+        setContent {
+            val context = LocalContext.current
+
+            val sentinel = remember {
+                Sentinel.configure(context = context) {
+                    config {
+                        this.appId = Sentinel.Identity.appId.toByteList()
+                        this.signature = Sentinel.Identity.signature?.toByteList()
+                        this.threshold = 20
+                    }
+
+                    all()
+                }
+            }
+
+            App(
+                sentinel = sentinel,
+                appId = Sentinel.Identity.appId,
+                appSignature = Sentinel.Identity.signature.orEmpty()
+            )
+        }
+    }
+}
