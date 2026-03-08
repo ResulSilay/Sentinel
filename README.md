@@ -28,6 +28,10 @@
 
 </div>
 
+Android|iOS
+--|--
+![Android](art/Android.gif) | ![iOS](art/iOS.gif)
+
 ## Sentinel
 
 **Sentinel** is a lightweight, modular Kotlin Multiplatform security toolkit designed to analyze
