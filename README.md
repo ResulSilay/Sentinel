@@ -7,7 +7,7 @@
 [![Security](https://img.shields.io/badge/Security-000000?style=for-the-badge&logo=bitwarden)](#)
 [![Toolkit](https://img.shields.io/badge/Toolkit-000000?style=for-the-badge&logo=hackthebox&logoColor=ffffff)](#)
 [![Gradle](https://img.shields.io/badge/Gradle-000000?style=for-the-badge&logo=gradle)](#)
-[![Version](https://img.shields.io/badge/1.0.0.alpha09-000000?style=for-the-badge&logo=stackblitz)](#)
+[![Version](https://img.shields.io/badge/1.0.0-alpha10-000000?style=for-the-badge&logo=stackblitz)](#)
 
 [![KMP](https://img.shields.io/badge/Kotlin%20Multiplatform%20-000000?style=for-the-badge&logo=kotlin&logoColor=ffffff)](#)
 [![Android](https://img.shields.io/badge/Android-000000?style=for-the-badge&logo=android&logoColor=ffffff)](https://developer.android.com/)
@@ -70,7 +70,7 @@ produces a comprehensive security report.
 Sentinel uses a centralized DSL configuration to manage all security checks.
 
 ```gradle
-implementation("io.github.resulsilay:sentinel:1.0.0-alpha09")
+implementation("io.github.resulsilay:sentinel:1.0.0-alpha10")
 ```
 
 ### Android Usage
@@ -109,14 +109,23 @@ val sentinel = Sentinel.configure {
 }
 ```
 
-### Report
+### Running Inspection
 
 Instead of basic checks, Sentinel performs a thorough inspection of the environment and provides a
 detailed report based on threat severity.
 
+> `inspect()` is a suspend function and must be executed within a coroutine scope.
+
 ```kotlin
 val report = sentinel.inspect()
+```
 
+### Report
+After the inspection completes, Sentinel returns a `SecurityReport`.
+This report aggregates all detected threats and provides a unified
+severity score and risk level for the current runtime environment.
+
+```kotlin
 println("Risk Level: ${report.riskLevel}")
 println("Severity Score: ${report.severity}")
 println("Threat Count: ${report.threats.size}")
@@ -139,6 +148,12 @@ if (report.isSafe()) {
 if (report.isCritical()) {
     println("Block app usage.")
 }
+```
+
+You can optionally log the report to the console / logcat for debugging purposes:
+
+```kotlin
+sentinel.log(report = report)
 ```
 
 ## License

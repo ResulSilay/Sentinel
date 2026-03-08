@@ -15,11 +15,11 @@ actual class Sentinel internal constructor(
         threshold = config.threshold
     ).also { report ->
         if (config.isLoggingEnabled) {
-            report(report = report)
+            log(report = report)
         }
     }
 
-    actual fun report(report: SecurityReport) = logReport(report = report)
+    actual fun log(report: SecurityReport) = logReport(report = report)
 
     companion object {
 

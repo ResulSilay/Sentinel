@@ -8,6 +8,6 @@ expect class Sentinel {
 
     suspend fun inspect(): SecurityReport
 
-    fun report(report: SecurityReport)
+    fun log(report: SecurityReport)
 }
 
