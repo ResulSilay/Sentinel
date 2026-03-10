@@ -35,6 +35,7 @@ class MainFragment : Fragment() {
             // hook()
             // emulator()
             // debug()
+            // location()
         }
 
         lifecycleScope.launch {

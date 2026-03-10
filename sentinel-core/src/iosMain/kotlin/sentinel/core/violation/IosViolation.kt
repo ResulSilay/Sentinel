@@ -10,7 +10,7 @@ sealed class IosViolation(
 
         data class URLSchemes(val urlScheme: String? = null) : Jailbreak(severity = 90)
 
-        data class SuspiciousSymlinks(val path: String? = null) : Jailbreak(severity = 50)
+        data class SuspiciousSymlinks(val path: String? = null) : Jailbreak(severity = 60)
     }
 
     sealed class Tamper(severity: Int) : IosViolation(severity = severity) {
@@ -20,7 +20,7 @@ sealed class IosViolation(
 
     sealed class Hook(severity: Int) : IosViolation(severity = severity) {
 
-        data class FrameworkDetected(val name: String? = null) : Hook(severity = 90)
+        data class FrameworkDetected(val name: String? = null) : Hook(severity = 95)
     }
 
     sealed class Simulator(severity: Int) : IosViolation(severity = severity) {
@@ -30,11 +30,11 @@ sealed class IosViolation(
 
     sealed class Debugger(severity: Int) : IosViolation(severity = severity) {
 
-        object Debuggable : Debugger(severity = 30)
+        object Debuggable : Debugger(severity = 40)
     }
 
     sealed class Location(severity: Int) : IosViolation(severity = severity) {
 
-        data class MockAppInstalled(val packages: List<String>) : Location(severity = 40)
+        data class MockAppInstalled(val packages: List<String>) : Location(severity = 70)
     }
 }

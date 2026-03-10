@@ -44,7 +44,7 @@ internal fun SentinelDetectors(
     }
 
     Column(
-        modifier = Modifier.padding(bottom = 96.dp)
+        modifier = Modifier.padding(bottom = 124.dp)
     ) {
         Text(
             modifier = Modifier

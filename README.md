@@ -7,7 +7,7 @@
 [![Security](https://img.shields.io/badge/Security-000000?style=for-the-badge&logo=bitwarden)](#)
 [![Toolkit](https://img.shields.io/badge/Toolkit-000000?style=for-the-badge&logo=hackthebox&logoColor=ffffff)](#)
 [![Gradle](https://img.shields.io/badge/Gradle-000000?style=for-the-badge&logo=gradle)](#)
-[![Version](https://img.shields.io/badge/1.0.0.alpha11-000000?style=for-the-badge&logo=stackblitz)](#)
+[![Version](https://img.shields.io/badge/1.1.0.alpha1-000000?style=for-the-badge&logo=stackblitz)](#)
 
 [![KMP](https://img.shields.io/badge/Kotlin%20Multiplatform%20-000000?style=for-the-badge&logo=kotlin&logoColor=ffffff)](#)
 [![Android](https://img.shields.io/badge/Android-000000?style=for-the-badge&logo=android&logoColor=ffffff)](https://developer.android.com/)
@@ -65,7 +65,8 @@ produces a comprehensive security report.
 ## Features
 
 ♦️ **Modular Detector Architecture:** Easily enable, disable, or extend security checks.  
-♦️ **Unified Risk Scoring System:** Aggregate all threats into a single severity score.  
+♦️ **Smart Risk Aggregation:** Advanced scoring logic that groups threats by category and
+prioritizes the highest risks to prevent score inflation.  
 ♦️ **Configurable Threat Threshold:** Set your own critical risk level to control app behavior.  
 ♦️ **DSL-Based Configuration:** Use a clean and expressive API for configuration.  
 ♦️ **Detailed Security Reports:** Get a full breakdown of detected threats.  
@@ -81,14 +82,14 @@ produces a comprehensive security report.
 | Hooking Frameworks             |    ✅    |  ❌  |
 | Emulator / Simulator Detection |    ✅    |  ✅  |
 | Debugging Detection            |    ✅    |  ❌  |
-| Mock Location Abuse            |    ❌    |  ❌  |
+| Mock Location Abuse            |    ✅    |  ❌  |
 
 ## Getting Started
 
 Sentinel uses a centralized DSL configuration to manage all security checks.
 
 ```gradle
-implementation("io.github.resulsilay:sentinel:1.0.0-alpha11")
+implementation("io.github.resulsilay:sentinel:1.1.0-alpha1")
 ```
 
 ### Android Usage
@@ -108,6 +109,7 @@ val sentinel = Sentinel.configure(context = context) {
     // hook()
     // emulator()
     // debug()
+    // location()
 }
 ```
 
@@ -144,9 +146,14 @@ After the inspection completes, Sentinel returns a `SecurityReport`.
 This report aggregates all detected threats and provides a unified
 severity score and risk level for the current runtime environment.
 
+> **Note:** Sentinel uses a categorical aggregation model. Instead of a simple sum, it selects the
+> maximum severity from each category (e.g., Root, Hook, Location) and sums those peaks. This ensures
+> a balanced risk score that accurately reflects the device's security posture without artificial
+> inflation.
+
 ```kotlin
 println("Risk Level: ${report.riskLevel}")
-println("Severity Score: ${report.severity}")
+println("Total Risk Score: ${report.severity} / ${report.threshold}")
 println("Threat Count: ${report.threats.size}")
 println("Timestamp: ${report.timestamp}")
 
@@ -157,6 +164,7 @@ if (report.isHooked) println("Hooking detected")
 if (report.isEmulator) println("Emulator detected")
 if (report.isSimulator) println("Simulator detected")
 if (report.isDebuggable) println("Debugger detected")
+if (report.isMockLocation) println("Mock location detected")
 
 if (report.isSafe()) {
     println("Device is secure")

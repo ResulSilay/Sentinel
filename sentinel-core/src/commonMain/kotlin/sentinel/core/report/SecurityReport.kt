@@ -24,7 +24,13 @@ abstract class SecurityReport(
 
     open val isMockLocation: Boolean = false
 
-    val severity: Int by lazy { threats.sumOf { threat -> threat.violation.severity } }
+    val severity: Int by lazy {
+        threats
+            .groupBy { it.violation::class }
+            .mapValues { entry -> entry.value.maxOf { it.violation.severity } }
+            .values
+            .sum()
+    }
 
     val riskLevel: RiskLevel by lazy {
         RiskLevel.getLevel(severity = severity, threshold = threshold)

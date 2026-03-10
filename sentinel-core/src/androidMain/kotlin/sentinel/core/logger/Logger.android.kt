@@ -1,6 +1,5 @@
 package sentinel.core.logger
 
-
 import sentinel.core.report.AndroidSecurityReport
 import sentinel.core.report.SecurityReport
 import sentinel.core.violation.AndroidViolation
@@ -12,7 +11,7 @@ actual fun logReport(report: SecurityReport) {
         println("║ SENTINEL ANDROID SECURITY REPORT")
         println("╠══════════════════════════════════════════════════════")
         println("║ Risk Level: ${report.riskLevel}")
-        println("║ Total Severity: ${report.severity} / ${report.threshold}")
+        println("║ Total Risk Score: ${report.severity} / ${report.threshold}")
         println("║ Summary: [Root: ${report.isRooted}, Debugged: ${report.isDebugged}]")
         println("╠══════════════════════════════════════════════════════")
 

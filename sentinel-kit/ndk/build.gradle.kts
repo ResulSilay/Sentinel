@@ -5,6 +5,7 @@ plugins {
 
 android {
     namespace = "${Config.NAMESPACE}.kit.ndk"
+
     compileSdk {
         version = release(36)
     }

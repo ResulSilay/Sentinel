@@ -52,6 +52,7 @@ class MainActivity : ComponentActivity() {
                     // hook()
                     // emulator()
                     // debug()
+                    // location()
                 }
             }
 

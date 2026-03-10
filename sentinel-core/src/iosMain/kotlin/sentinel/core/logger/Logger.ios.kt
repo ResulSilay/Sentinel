@@ -11,7 +11,7 @@ actual fun logReport(report: SecurityReport) {
         println("║ SENTINEL IOS SECURITY REPORT")
         println("╠══════════════════════════════════════════════════════")
         println("║ Risk Level: ${report.riskLevel}")
-        println("║ Total Severity: ${report.severity} / ${report.threshold}")
+        println("║ Total Risk Score: ${report.severity} / ${report.threshold}")
         println("║ Summary: [Jailbroken: ${report.isJailbroken}, Debugged: ${report.isDebugged}]")
         println("╠══════════════════════════════════════════════════════")
 

@@ -12,9 +12,11 @@ kotlin {
 
     androidLibrary {
         namespace = "${Config.NAMESPACE}.identity"
+
         compileSdk {
             version = release(36) { minorApiLevel = 1 }
         }
+
         minSdk = 24
     }
 

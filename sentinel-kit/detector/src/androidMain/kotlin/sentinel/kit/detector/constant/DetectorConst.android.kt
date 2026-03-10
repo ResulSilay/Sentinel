@@ -1,6 +1,6 @@
 package sentinel.kit.detector.constant
 
-object DetectorConst {
+internal object DetectorConst {
 
     const val TEST_KEYS_TAG: String = "test-keys"
 
@@ -26,5 +26,42 @@ object DetectorConst {
         "com.saurik.substrate",
         "com.devadvance.rootcloak",
         "com.devadvance.rootcloakplus"
+    )
+
+    val MOCK_LOCATION_PACKAGES = setOf(
+        "com.lexa.fakegps",
+        "com.theappninjas.fakegpsjoystick",
+        "com.incorporateapps.fakegps",
+        "com.incorporateapps.fakegps.fre",
+        "com.fakegpslocation",
+        "com.blogspot.newapphorizons.fakegps",
+        "com.blogspot.newapphorizons.fakegpsfree",
+        "com.evezzon.fakegps",
+        "com.rosteam.gpsemulator",
+        "com.rosteam.gpsemulator.free",
+        "com.theappninjas.gpsjoystick",
+        "com.theappninjas.fakegpsjoystick.free",
+        "com.theappninjas.fakegpsjoystick.pro",
+        "com.locationchanger.fakegps",
+        "com.locationchanger",
+        "com.fly.gps",
+        "com.gsmartstudio.fakegps",
+        "com.gsmartstudio.fakegps.route",
+        "com.gsmartstudio.fakegpsgo",
+        "com.pokemod.fakegps",
+        "com.pokemod.locationchanger",
+        "com.pokego.fakegps",
+        "com.fakegps.mock",
+        "com.mock.gps",
+        "com.mockgps",
+        "com.mock.location",
+        "com.gpsemulator",
+        "com.gps.emulator",
+        "com.gps.fake.location",
+        "ru.gpsspoofing",
+        "com.fakegps.pro",
+        "com.fakegps.routes",
+        "com.fakegps.teleport",
+        "com.fakegps.joystick",
     )
 }

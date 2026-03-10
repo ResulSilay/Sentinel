@@ -33,8 +33,8 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":sentinel-ui"))
 
-            // implementation("io.github.resulsilay:sentinel:1.0.0-alpha11")
-            // implementation("io.github.resulsilay:sentinel-ui:1.0.0-alpha11")
+            // implementation("io.github.resulsilay:sentinel:1.1.0-alpha1")
+            // implementation("io.github.resulsilay:sentinel-ui:1.1.0-alpha1")
 
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)

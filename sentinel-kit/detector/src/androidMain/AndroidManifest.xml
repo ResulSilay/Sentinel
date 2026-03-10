@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <queries>
+        <package android:name="com.lexa.fakegps" />
+        <package android:name="com.theappninjas.fakegpsjoystick" />
+        <package android:name="com.incorporateapps.fakegps" />
+        <package android:name="com.incorporateapps.fakegps.fre" />
+        <package android:name="com.fakegpslocation" />
+        <package android:name="com.blogspot.newapphorizons.fakegps" />
+        <package android:name="com.blogspot.newapphorizons.fakegpsfree" />
+        <package android:name="com.evezzon.fakegps" />
+        <package android:name="com.rosteam.gpsemulator" />
+        <package android:name="com.rosteam.gpsemulator.free" />
+        <package android:name="com.theappninjas.gpsjoystick" />
+        <package android:name="com.theappninjas.fakegpsjoystick.free" />
+        <package android:name="com.theappninjas.fakegpsjoystick.pro" />
+        <package android:name="com.locationchanger.fakegps" />
+        <package android:name="com.locationchanger" />
+        <package android:name="com.fly.gps" />
+        <package android:name="com.gsmartstudio.fakegps" />
+        <package android:name="com.gsmartstudio.fakegps.route" />
+        <package android:name="com.gsmartstudio.fakegpsgo" />
+        <package android:name="com.pokemod.fakegps" />
+        <package android:name="com.pokemod.locationchanger" />
+        <package android:name="com.pokego.fakegps" />
+        <package android:name="com.fakegps.mock" />
+        <package android:name="com.mock.gps" />
+        <package android:name="com.mockgps" />
+        <package android:name="com.mock.location" />
+        <package android:name="com.gpsemulator" />
+        <package android:name="com.gps.emulator" />
+        <package android:name="com.gps.fake.location" />
+        <package android:name="ru.gpsspoofing" />
+        <package android:name="com.fakegps.pro" />
+        <package android:name="com.fakegps.routes" />
+        <package android:name="com.fakegps.teleport" />
+        <package android:name="com.fakegps.joystick" />
+
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+    </queries>
+</manifest>
