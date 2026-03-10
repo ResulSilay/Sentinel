@@ -1,0 +1,57 @@
+package com.rs.sample.android.ui.main
+
+import androidx.fragment.app.viewModels
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import com.rs.sample.android.R
+import kotlinx.coroutines.launch
+import sentinel.Sentinel
+import sentinel.all
+import sentinel.configure
+import sentinel.core.ext.toByteList
+
+class MainFragment : Fragment() {
+
+    private val viewModel: MainViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val sentinel = Sentinel.configure(context = requireContext()) {
+            config {
+                this.appId = Sentinel.Identity.appId.toByteList()
+                this.signature = Sentinel.Identity.signature?.toByteList()
+                this.threshold = 20
+                // this.isLoggingEnabled = true
+            }
+
+            all()
+            // root()
+            // tamper()
+            // hook()
+            // emulator()
+            // debug()
+        }
+
+        lifecycleScope.launch {
+            val report = sentinel.inspect()
+            sentinel.log(report = report)
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        return inflater.inflate(R.layout.fragment_main, container, false)
+    }
+
+    companion object {
+
+        fun newInstance() = MainFragment()
+    }
+}

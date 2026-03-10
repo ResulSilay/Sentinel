@@ -26,5 +26,6 @@ include(":sentinel-kit:ndk")
 include(":sentinel-kit:detector")
 
 include(":sample")
+include(":sample:android")
 include(":sample:multiplatform")
 include(":sample:multiplatform:composeApp")
