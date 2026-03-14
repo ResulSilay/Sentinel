@@ -65,7 +65,7 @@ produces a comprehensive security report.
 ## Features
 
 ♦️ **Modular Detector Architecture:** Easily enable, disable, or extend security checks.  
-♦️ **Smart Risk Aggregation:** Weighted category scoring to prevent artificial risk inflation.
+♦️ **Smart Risk Aggregation:** Weighted category scoring to prevent artificial risk inflation.  
 ♦️ **Configurable Threat Threshold:** Set your own critical risk level to control app behavior.  
 ♦️ **DSL-Based Configuration:** Use a clean and expressive API for configuration.  
 ♦️ **Detailed Security Reports:** Get a full breakdown of detected threats.  
