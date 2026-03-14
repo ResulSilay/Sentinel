@@ -7,11 +7,11 @@
 [![Security](https://img.shields.io/badge/Security-000000?style=for-the-badge&logo=bitwarden)](#)
 [![Toolkit](https://img.shields.io/badge/Toolkit-000000?style=for-the-badge&logo=hackthebox&logoColor=ffffff)](#)
 [![Gradle](https://img.shields.io/badge/Gradle-000000?style=for-the-badge&logo=gradle)](#)
-[![Version](https://img.shields.io/badge/1.1.0.alpha1-000000?style=for-the-badge&logo=stackblitz)](#)
+[![Version](https://img.shields.io/badge/1.1.0.alpha2-000000?style=for-the-badge&logo=stackblitz)](#)
 
 [![KMP](https://img.shields.io/badge/Kotlin%20Multiplatform%20-000000?style=for-the-badge&logo=kotlin&logoColor=ffffff)](#)
 [![Android](https://img.shields.io/badge/Android-000000?style=for-the-badge&logo=android&logoColor=ffffff)](https://developer.android.com/)
-[![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=ffffff)](https://developer.apple.com/)
+[![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=ffffff)](https://developer.apple.com/)
 
 > **Note:** This library is currently under active development. Some features, especially on iOS may
 > be incomplete or experimental.
@@ -65,8 +65,7 @@ produces a comprehensive security report.
 ## Features
 
 ♦️ **Modular Detector Architecture:** Easily enable, disable, or extend security checks.  
-♦️ **Smart Risk Aggregation:** Advanced scoring logic that groups threats by category and
-prioritizes the highest risks to prevent score inflation.  
+♦️ **Smart Risk Aggregation:** Weighted category scoring to prevent artificial risk inflation.
 ♦️ **Configurable Threat Threshold:** Set your own critical risk level to control app behavior.  
 ♦️ **DSL-Based Configuration:** Use a clean and expressive API for configuration.  
 ♦️ **Detailed Security Reports:** Get a full breakdown of detected threats.  
@@ -89,7 +88,7 @@ prioritizes the highest risks to prevent score inflation.
 Sentinel uses a centralized DSL configuration to manage all security checks.
 
 ```gradle
-implementation("io.github.resulsilay:sentinel:1.1.0-alpha1")
+implementation("io.github.resulsilay:sentinel:1.1.0-alpha2")
 ```
 
 ### Android Usage
@@ -147,7 +146,8 @@ This report aggregates all detected threats and provides a unified
 severity score and risk level for the current runtime environment.
 
 > **Note:** Sentinel uses a categorical aggregation model. Instead of a simple sum, it selects the
-> maximum severity from each category (e.g., Root, Hook, Location) and sums those peaks. This ensures
+> maximum severity from each category (e.g., Root, Hook, Location) and sums those peaks. This
+> ensures
 > a balanced risk score that accurately reflects the device's security posture without artificial
 > inflation.
 

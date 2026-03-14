@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.android
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.kotlin.multiplatform.library)
@@ -10,7 +12,7 @@ version = Config.Version.NAME
 
 kotlin {
 
-    androidLibrary {
+    android {
         namespace = "${Config.NAMESPACE}.kit.detector"
 
         compileSdk {

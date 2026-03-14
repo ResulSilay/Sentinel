@@ -1,4 +1,3 @@
-import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -11,7 +10,7 @@ group = Config.Publishing.GROUP_ID
 version = Config.Version.NAME
 
 kotlin {
-    androidLibrary {
+    android {
         namespace = Config.NAMESPACE
         compileSdk = Config.Version.COMPILE_SDK
         minSdk = Config.Version.MIN_SDK
@@ -25,7 +24,15 @@ kotlin {
                 )
             }
         }
+
+        optimization {
+            consumerKeepRules.apply {
+                publish = true
+                file("consumer-proguard-rules.pro")
+            }
+        }
     }
+
     iosX64()
     iosArm64()
     iosSimulatorArm64()

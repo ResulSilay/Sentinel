@@ -9,6 +9,7 @@ mavenPublishing {
         sourcesJar = true,
         javadocJar = true
     )
+
     publishToMavenCentral(automaticRelease = true)
 
     signAllPublications()

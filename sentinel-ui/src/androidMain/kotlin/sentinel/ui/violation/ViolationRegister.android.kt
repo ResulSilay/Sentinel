@@ -17,11 +17,13 @@ actual fun getViolations(): List<SecurityViolation> = listOf(
     AndroidViolation.Hook.FridaDetected,
 
     AndroidViolation.Emulator.Detected(),
+
     AndroidViolation.Debugger.Debuggable,
     AndroidViolation.Debugger.TestKeys,
+
     AndroidViolation.Location.MockSettingEnabled,
     AndroidViolation.Location.MockLocationDetected,
-    AndroidViolation.Location.MockAppInstalled(emptyList())
+    AndroidViolation.Location.MockAppInstalled(packages = emptyList())
 )
 
 actual fun getGroupName(violation: SecurityViolation): String = when (violation) {

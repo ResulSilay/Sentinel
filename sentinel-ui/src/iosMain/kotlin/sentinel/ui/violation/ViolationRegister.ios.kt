@@ -16,7 +16,7 @@ actual fun getViolations(): List<SecurityViolation> = listOf(
 
     IosViolation.Debugger.Debuggable,
 
-    IosViolation.Location.MockAppInstalled(emptyList())
+    IosViolation.Location.MockAppInstalled(packages = emptyList())
 )
 
 actual fun getGroupName(violation: SecurityViolation): String = when (violation) {

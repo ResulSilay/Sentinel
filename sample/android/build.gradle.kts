@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -39,7 +39,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":sentinel"))
+    // implementation(project(":sentinel"))
+
+    implementation("io.github.resulsilay:sentinel:1.1.0-alpha2")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
