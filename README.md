@@ -50,7 +50,7 @@ runtime environments and detect potential security threats in real time on both 
 </div>
 
 ## Why Sentinel?
-Most mobile apps rely only on server-side security - but attacks happen on the client.
+Most mobile apps rely only on server-side security, but attacks happen on the client.
 
 Sentinel provides real-time, on-device threat detection with minimal performance overhead.
 
