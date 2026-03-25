@@ -33,8 +33,8 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":sentinel-ui"))
 
-            // implementation("io.github.resulsilay:sentinel:1.1.0-alpha3")
-            // implementation("io.github.resulsilay:sentinel-ui:1.1.0-alpha3")
+            // implementation("io.github.resulsilay:sentinel:1.1.0-alpha4")
+            // implementation("io.github.resulsilay:sentinel-ui:1.1.0-alpha4")
 
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
@@ -56,7 +56,7 @@ android {
         applicationId = "com.rs.sentinel"
         minSdk = 24
         targetSdk = 36
-        versionCode = 2
+        versionCode = 1
         versionName = "1.0.0"
     }
 

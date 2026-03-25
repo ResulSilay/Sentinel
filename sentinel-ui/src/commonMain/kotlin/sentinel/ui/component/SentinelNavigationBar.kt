@@ -110,7 +110,7 @@ internal fun SentinelNavigationBar(
                 )
                 .border(
                     width = 1.dp,
-                    brush = Brush.linearGradient(
+                    brush = Brush.verticalGradient(
                         colors = listOf(
                             Color.White.copy(alpha = 0.3f),
                             Color.White.copy(alpha = 0.03f),
@@ -123,15 +123,11 @@ internal fun SentinelNavigationBar(
                     val paddingPx = 6.dp.toPx()
 
                     drawRoundRect(
-                        brush = Brush.linearGradient(
+                        brush = Brush.verticalGradient(
                             colors = listOf(
                                 Color.DarkGray.copy(alpha = 0.20f),
                                 Color.DarkGray.copy(alpha = 0.05f),
                                 Color.Transparent
-                            ),
-                            start = Offset(
-                                x = 32f,
-                                y = 0f
                             )
                         ),
                         topLeft = Offset(
@@ -149,14 +145,12 @@ internal fun SentinelNavigationBar(
                     )
 
                     drawRoundRect(
-                        brush = Brush.horizontalGradient(
+                        brush = Brush.verticalGradient(
                             colors = listOf(
                                 Color.White.copy(alpha = 0.09f),
                                 Color.Transparent,
                                 Color.Transparent
                             ),
-                            startX = animX + 4.dp.toPx(),
-                            endX = animX + animWidth - 4.dp.toPx()
                         ),
                         topLeft = Offset(
                             x = animX + paddingPx,

@@ -20,43 +20,17 @@ kotlin {
         minSdk = 24
     }
 
-    val xcfName = "sentinel-kit-detector"
-
-    iosX64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
-
-    iosArm64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
-
-    iosSimulatorArm64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
-
-    sourceSets {
-        commonMain {
-            dependencies {
-                api(project(":sentinel-core"))
-            }
-        }
-
-        androidMain {
-            dependencies {
-                api(project(":sentinel-kit:ndk"))
-            }
-        }
-    }
-
-    val iosTargets = listOf(iosX64(), iosArm64(), iosSimulatorArm64())
+    val iosTargets = listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    )
 
     iosTargets.forEach { target ->
+        target.binaries.framework {
+            baseName = "sentinel-kit-detector"
+        }
+
         target.compilations.getByName("main") {
             cinterops {
                 val debuggerInterop by creating {
@@ -70,6 +44,20 @@ kotlin {
                     )
                     includeDirs.allHeaders("src/nativeInterop/cinterop/debugger/")
                 }
+            }
+        }
+    }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                api(project(":sentinel-core"))
+            }
+        }
+
+        androidMain {
+            dependencies {
+                api(project(":sentinel-kit:ndk"))
             }
         }
     }
