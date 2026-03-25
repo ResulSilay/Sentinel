@@ -154,7 +154,7 @@ if (report.isTampered) println("App tampering detected")
 if (report.isHooked) println("Hooking detected")
 if (report.isEmulator) println("Emulator detected")
 if (report.isSimulator) println("Simulator detected")
-if (report.isDebuggable) println("Debugger detected")
+if (report.isDebugged) println("Debugger detected")
 if (report.isMockLocation) println("Mock location detected")
 
 if (report.isSafe()) {

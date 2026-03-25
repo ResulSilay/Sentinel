@@ -16,12 +16,12 @@ class DebugDetector(
     private val flags = context.applicationInfo.flags
 
     override fun detect(): List<Threat> {
-        val isDebugger = isDebuggerConnected()
+        val isDebuggerConnected = isDebuggerConnected()
         val isDebuggable = (flags and ApplicationInfo.FLAG_DEBUGGABLE != 0)
         val isTestKeys = Build.TAGS?.contains(other = DetectorConst.TEST_KEYS_TAG) == true
 
         return buildList {
-            if (isDebugger || isDebuggable) {
+            if (isDebuggerConnected || isDebuggable) {
                 add(element = Threat(violation = AndroidViolation.Debugger.Debuggable))
             }
 
