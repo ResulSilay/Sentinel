@@ -121,6 +121,7 @@ val sentinel = Sentinel.configure {
     all()
     // jailbreak()
     // simulator()
+    // debug()
 }
 ```
 
