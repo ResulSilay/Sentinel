@@ -17,9 +17,9 @@ sealed class AndroidViolation(
 
     sealed class Tamper(severity: Int) : AndroidViolation(severity = severity) {
 
-        object PackageNameChanged : Tamper(severity = 85)
+        object PackageNameChanged : Tamper(severity = 90)
 
-        object DexIntegrityFailed : Tamper(severity = 95)
+        object DexIntegrityFailed : Tamper(severity = 90)
 
         object SignatureMismatch : Tamper(severity = 100)
     }

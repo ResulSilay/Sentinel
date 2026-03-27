@@ -21,8 +21,8 @@ fun Builder.jailbreak() = apply {
 fun Builder.tamper() = apply {
     addDetector(
         detector = TamperDetector(
-            appId = config.appId,
-            appSignature = config.signature
+            bundleId = config.appId,
+            hash = config.hash
         )
     )
 }

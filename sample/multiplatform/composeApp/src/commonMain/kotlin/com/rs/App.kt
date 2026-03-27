@@ -15,6 +15,7 @@ fun App(
     sentinel: Sentinel,
     appId: String = "",
     appSignature: String = "",
+    appHash: String = "",
 ) {
     SentinelTheme {
         Scaffold(
@@ -25,7 +26,8 @@ fun App(
                 navigationBarModifier = navigationBarModifier,
                 sentinel = sentinel,
                 appId = appId,
-                appSignature = appSignature
+                appSignature = appSignature,
+                appHash = appHash
             )
         }
     }

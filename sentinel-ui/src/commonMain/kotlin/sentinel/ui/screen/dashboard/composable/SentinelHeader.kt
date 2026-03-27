@@ -18,6 +18,7 @@ internal fun SentinelHeader(
     scrollState: ScrollState,
     appId: String,
     appSignature: String,
+    appHash: String,
     riskLevel: RiskLevel,
     severity: Int,
 ) {
@@ -47,7 +48,8 @@ internal fun SentinelHeader(
     ) {
         SentinelPackageCard(
             appId = appId,
-            appSignature = appSignature
+            appSignature = appSignature,
+            appHash = appHash
         )
 
         SentinelRiskLevelCard(

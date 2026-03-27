@@ -33,6 +33,7 @@ internal fun SentinelDashboardScreen(
     sentinel: Sentinel,
     appId: String,
     appSignature: String,
+    appHash: String,
 ) {
     var state by remember {
         mutableStateOf<SentinelDashboardState>(SentinelDashboardState.Loading)
@@ -71,7 +72,8 @@ internal fun SentinelDashboardScreen(
                 SentinelDashboardContent(
                     state = state,
                     appId = appId,
-                    appSignature = appSignature
+                    appSignature = appSignature,
+                    appHash = appHash
                 )
             }
 
@@ -91,6 +93,7 @@ private fun SentinelDashboardContent(
     state: SentinelDashboardState.Success,
     appId: String,
     appSignature: String,
+    appHash: String,
 ) {
     val scrollState = rememberScrollState()
 
@@ -105,6 +108,7 @@ private fun SentinelDashboardContent(
                 scrollState = scrollState,
                 appId = appId,
                 appSignature = appSignature,
+                appHash = appHash,
                 riskLevel = state.report.riskLevel,
                 severity = state.report.severity
             )

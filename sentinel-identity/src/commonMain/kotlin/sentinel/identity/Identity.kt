@@ -10,5 +10,7 @@ expect class Identity(context: Any? = null) : Identity {
 
     override val signature: String?
 
+    override val hash: String?
+
     override val platform: String
 }

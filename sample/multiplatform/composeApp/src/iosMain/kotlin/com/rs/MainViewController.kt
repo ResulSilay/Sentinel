@@ -8,18 +8,22 @@ import androidx.compose.ui.window.ComposeUIViewController
 import sentinel.Sentinel
 import sentinel.all
 import sentinel.configure
+import sentinel.core.ext.toByteList
 
 fun MainViewController() = ComposeUIViewController {
 
     val sentinel = remember {
         Sentinel.configure {
             config {
+                this.appId = Sentinel.Identity.appId.toByteList()
+                this.hash = Sentinel.Identity.hash?.toByteList()
                 this.threshold = 20
                 this.isLoggingEnabled = true
             }
 
             all()
             // jailbreak()
+            // tamper()
             // hook()
             // simulator()
             // debug()
@@ -29,6 +33,7 @@ fun MainViewController() = ComposeUIViewController {
     App(
         navigationBarModifier = Modifier.padding(bottom = 24.dp),
         sentinel = sentinel,
-        appId = Sentinel.Identity.appId
+        appId = Sentinel.Identity.appId,
+        appHash = Sentinel.Identity.hash.orEmpty()
     )
 }

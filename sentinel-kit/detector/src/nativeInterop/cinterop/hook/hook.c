@@ -76,7 +76,7 @@ __attribute__((always_inline)) bool checkDyldImages() {
     if (!name)
       continue;
 
-    // os_log(OS_LOG_DEFAULT, "NAME: %{public}s", name);
+    // os_log(OS_LOG_DEFAULT, "NAME: %s", name);
 
     if (strstr(name, "Frida") ||
         strstr(name, "frida") ||

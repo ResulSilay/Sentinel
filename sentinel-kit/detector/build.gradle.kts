@@ -53,8 +53,9 @@ kotlin {
 
                     includeDirs.allHeaders(
                         includeDirs = listOf(
-                            "src/nativeInterop/cinterop/debugger/",
-                            "src/nativeInterop/cinterop/hook/"
+                            "src/nativeInterop/cinterop/tamper/",
+                            "src/nativeInterop/cinterop/hook/",
+                            "src/nativeInterop/cinterop/debugger/"
                         )
                     )
                 }

@@ -33,11 +33,11 @@ actual fun logReport(report: SecurityReport) {
                     val name = violation::class.simpleName ?: "Unknown Violation"
 
                     val detail = when (violation) {
-                        is AndroidViolation.Root.AppInstalled -> "Package: ${violation.packageName}"
-                        is AndroidViolation.Root.SuspiciousMount -> "Mount: ${violation.mountPoint}"
+                        is AndroidViolation.Root.AppInstalled -> "Package: ${violation.packageName.orEmpty()}"
+                        is AndroidViolation.Root.SuspiciousMount -> "Mount: ${violation.mountPoint.orEmpty()}"
                         is AndroidViolation.Hook.FrameworkDetected -> "Framework: ${violation.name ?: "Unknown"}"
                         is AndroidViolation.Emulator.Detected -> "Name: ${violation.name ?: "Unknown"}"
-                        is AndroidViolation.Location.MockAppInstalled -> "Apps: ${violation.packages}"
+                        is AndroidViolation.Location.MockAppInstalled -> "Apps: ${violation.packages.orEmpty()}"
                         else -> "System integrity check failed"
                     }
 
@@ -47,6 +47,7 @@ actual fun logReport(report: SecurityReport) {
                 }
             }
         }
+
         println("╚══════════════════════════════════════════════════════")
     }
 }

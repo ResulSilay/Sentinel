@@ -27,6 +27,7 @@ internal fun SentinelPackageCard(
     modifier: Modifier = Modifier,
     appId: String,
     appSignature: String,
+    appHash: String,
 ) {
     Card(
         modifier = modifier
@@ -68,6 +69,15 @@ internal fun SentinelPackageCard(
                 SentinelInfoItem(
                     title = stringResource(resource = Res.string.app_signature),
                     subtitle = appSignature
+                )
+            }
+
+            if (appHash.isNotBlank()) {
+                Spacer(modifier = Modifier.height(height = 12.dp))
+
+                SentinelInfoItem(
+                    title = stringResource(resource = Res.string.app_signature),
+                    subtitle = appHash
                 )
             }
         }

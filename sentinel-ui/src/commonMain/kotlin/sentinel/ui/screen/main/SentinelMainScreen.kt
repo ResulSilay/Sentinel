@@ -22,6 +22,7 @@ fun SentinelMainScreen(
     sentinel: Sentinel,
     appId: String,
     appSignature: String,
+    appHash: String,
 ) {
     var selectedTab by remember { mutableStateOf(SentinelTab.Dashboard) }
     val onTabSelected = remember { { tab: SentinelTab -> selectedTab = tab } }
@@ -44,7 +45,8 @@ fun SentinelMainScreen(
                     SentinelDashboardScreen(
                         sentinel = sentinel,
                         appId = appId,
-                        appSignature = appSignature
+                        appSignature = appSignature,
+                        appHash = appHash
                     )
                 }
 

@@ -9,6 +9,7 @@ actual fun getViolations(): List<SecurityViolation> = listOf(
     IosViolation.Jailbreak.AppInstalled(),
     IosViolation.Jailbreak.URLSchemes(),
 
+    IosViolation.Tamper.BundleIdChanged,
     IosViolation.Tamper.SignatureMismatch,
 
     IosViolation.Hook.FrameworkDetected(),
@@ -19,7 +20,7 @@ actual fun getViolations(): List<SecurityViolation> = listOf(
 
     IosViolation.Debugger.Debuggable,
 
-    IosViolation.Location.MockAppInstalled(packages = emptyList())
+    // IosViolation.Location.MockAppInstalled(packages = emptyList())
 )
 
 actual fun getGroupName(violation: SecurityViolation): String = when (violation) {
@@ -28,6 +29,6 @@ actual fun getGroupName(violation: SecurityViolation): String = when (violation)
     is IosViolation.Hook -> "Hook"
     is IosViolation.Simulator -> "Simulator"
     is IosViolation.Debugger -> "Debugger"
-    is IosViolation.Location -> "Location"
+    // is IosViolation.Location -> "Location"
     else -> "General"
 }

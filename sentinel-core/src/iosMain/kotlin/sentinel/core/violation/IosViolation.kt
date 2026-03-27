@@ -17,6 +17,8 @@ sealed class IosViolation(
 
     sealed class Tamper(severity: Int) : IosViolation(severity = severity) {
 
+        object BundleIdChanged : Tamper(severity = 90)
+
         object SignatureMismatch : Tamper(severity = 100)
     }
 
