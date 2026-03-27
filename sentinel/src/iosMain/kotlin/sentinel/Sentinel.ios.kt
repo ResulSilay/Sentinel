@@ -2,9 +2,9 @@ package sentinel
 
 import sentinel.core.detector.SecurityDetector
 import sentinel.core.identity.Identity
-import sentinel.core.logger.logReport
-import sentinel.core.report.SecurityReport
+import sentinel.core.logger.SentinelLogger
 import sentinel.core.report.IosSecurityReport
+import sentinel.core.report.SecurityReport
 
 actual class Sentinel internal constructor(
     private val detectors: List<SecurityDetector>,
@@ -15,11 +15,9 @@ actual class Sentinel internal constructor(
         threshold = config.threshold
     ).also { report ->
         if (config.isLoggingEnabled) {
-            log(report = report)
+            SentinelLogger.report(report = report)
         }
     }
-
-    actual fun log(report: SecurityReport) = logReport(report = report)
 
     companion object {
 

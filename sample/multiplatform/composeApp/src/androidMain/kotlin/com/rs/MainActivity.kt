@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
                         this.appId = Sentinel.Identity.appId.toByteList()
                         this.signature = Sentinel.Identity.signature?.toByteList()
                         this.threshold = 20
-                        this.isLoggingEnabled = true
+                        // this.isLoggingEnabled = true
                     }
 
                     all()

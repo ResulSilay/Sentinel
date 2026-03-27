@@ -18,7 +18,7 @@ fun MainViewController() = ComposeUIViewController {
                 this.appId = Sentinel.Identity.appId.toByteList()
                 this.hash = Sentinel.Identity.hash?.toByteList()
                 this.threshold = 20
-                this.isLoggingEnabled = true
+                // this.isLoggingEnabled = true
             }
 
             all()

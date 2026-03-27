@@ -50,6 +50,7 @@ runtime environments and detect potential security threats in real time on both 
 </div>
 
 ## Why Sentinel?
+
 Most mobile apps rely only on server-side security, but attacks happen on the client.
 
 Sentinel provides real-time, on-device threat detection with minimal performance overhead.
@@ -58,7 +59,7 @@ Sentinel provides real-time, on-device threat detection with minimal performance
 ☑️️ Detect runtime manipulation (Frida, Xposed)  
 ☑️️ Detect app tampering & reverse engineering  
 ☑️️ Detect emulators & unsafe environments  
-☑️️ Designed for Kotlin Multiplatform (KMP)  
+☑️️ Designed for Kotlin Multiplatform (KMP)
 
 ## Features
 
@@ -174,17 +175,58 @@ if (report.isCritical()) {
 You can optionally log the report to the console / logcat for debugging purposes:
 
 ```kotlin
-sentinel.log(report = report)
+SentinelLogger.report(report = report)
+```
+
+### RASP - Runtime Application Self-Protection
+
+Sentinel goes beyond initial startup checks; it provides active protection throughout the
+application's lifecycle. By performing periodic background scans, it enables real-time responses to
+unauthorized access attempts and external manipulations occurring at runtime.
+
+```kotlin
+sentinel.scan(intervalMs = 10_000) {
+    onCompromised {
+        info(msg = "Device integrity failed (Root/Jailbreak detected).")
+    }
+
+    onTampered {
+        info(msg = "App tampering detected.")
+    }
+
+    onHooked {
+        info(msg = "Runtime hook detection.")
+    }
+
+    onSimulated {
+        info(msg = "Running on Emulator/Simulator environment.")
+    }
+
+    onDebugged {
+        info(msg = "Active debugging session detected.")
+    }
+
+    onCritical { score ->
+        info(msg = "High risk score reached: $score")
+    }
+
+    onSafe {
+        info(msg = "All systems nominal.")
+    }
+}
 ```
 
 ## Samples
+
 - [Multiplatform](sample/multiplatform)
 - [Android](sample/android)
 
 ## Risk Scoring
+
 Sentinel does NOT simply sum threats.
 
 Instead:
+
 - Groups threats by category
 - Takes the highest severity per category
 - Produces a realistic risk score

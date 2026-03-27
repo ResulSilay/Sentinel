@@ -13,6 +13,7 @@ import sentinel.Sentinel
 import sentinel.all
 import sentinel.configure
 import sentinel.core.ext.toByteList
+import sentinel.core.logger.SentinelLogger
 
 class MainFragment : Fragment() {
 
@@ -40,7 +41,7 @@ class MainFragment : Fragment() {
 
         lifecycleScope.launch {
             val report = sentinel.inspect()
-            sentinel.log(report = report)
+            SentinelLogger.report(report = report)
         }
     }
 

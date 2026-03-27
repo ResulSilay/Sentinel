@@ -25,6 +25,7 @@ kotlin {
             }
         }
 
+        @Suppress("UnstableApiUsage")
         optimization {
             consumerKeepRules.apply {
                 publish = true
@@ -42,6 +43,8 @@ kotlin {
             api(project(":sentinel-core"))
             api(project(":sentinel-identity"))
             api(project(":sentinel-kit:detector"))
+
+            implementation(libs.kotlinx.coroutines.core)
         }
     }
 }

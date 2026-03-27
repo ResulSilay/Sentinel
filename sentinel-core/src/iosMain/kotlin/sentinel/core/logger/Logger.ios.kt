@@ -1,54 +1,61 @@
 package sentinel.core.logger
 
-import sentinel.core.report.SecurityReport
 import sentinel.core.report.IosSecurityReport
+import sentinel.core.report.SecurityReport
 import sentinel.core.violation.IosViolation
 import sentinel.core.violation.getGroupName
 
-actual fun logReport(report: SecurityReport) {
-    if (report is IosSecurityReport) {
-        println("╔══════════════════════════════════════════════════════")
-        println("║ SENTINEL IOS SECURITY REPORT")
-        println("╠══════════════════════════════════════════════════════")
-        println("║ Risk Level: ${report.riskLevel}")
-        println("║ Total Risk Score: ${report.severity} / ${report.threshold}")
-        println("║ Summary: [Jailbroken: ${report.isJailbroken}, Debugged: ${report.isDebugged}]")
-        println("╠══════════════════════════════════════════════════════")
+actual object SentinelLogger {
 
-        if (report.threats.isEmpty()) {
-            println("║ No threats detected. Device is secure.")
-        } else {
-            println("║ DETECTED THREATS (${report.threats.size})")
+    actual fun info(tag: String, msg: String) {
+        println("[$tag] $msg")
+    }
 
-            val groupedThreats = report.threats.groupBy { threat ->
-                getGroupName(threat.violation)
-            }
+    actual fun report(report: SecurityReport) {
+        if (report is IosSecurityReport) {
+            println("╔══════════════════════════════════════════════════════")
+            println("║ SENTINEL IOS SECURITY REPORT")
+            println("╠══════════════════════════════════════════════════════")
+            println("║ Risk Level: ${report.riskLevel}")
+            println("║ Total Risk Score: ${report.severity} / ${report.threshold}")
+            println("║ Summary: [Jailbroken: ${report.isJailbroken}, Debugged: ${report.isDebugged}]")
+            println("╠══════════════════════════════════════════════════════")
 
-            groupedThreats.forEach { (group, threats) ->
-                println("║")
-                println("║ Violation: $group")
+            if (report.threats.isEmpty()) {
+                println("║ No threats detected. Device is secure.")
+            } else {
+                println("║ DETECTED THREATS (${report.threats.size})")
 
-                threats.forEachIndexed { index, threat ->
-                    val violation = threat.violation
-                    val name = violation::class.simpleName ?: "Unknown Violation"
+                val groupedThreats = report.threats.groupBy { threat ->
+                    getGroupName(threat.violation)
+                }
 
-                    val detail = when (violation) {
-                        is IosViolation.Jailbreak.AppInstalled -> "App Id: ${violation.appId.orEmpty()}"
-                        is IosViolation.Jailbreak.URLSchemes -> "URL Scheme: ${violation.urlScheme.orEmpty()}"
-                        is IosViolation.Jailbreak.SuspiciousSymlinks -> "Path: ${violation.path.orEmpty()}"
-                        is IosViolation.Hook.FrameworkDetected -> "Framework: ${violation.name ?: "Unknown"}"
-                        is IosViolation.Simulator.Detected -> "Name: ${violation.name ?: "Unknown"}"
-                        is IosViolation.Location.MockAppInstalled -> "Apps: ${violation.packages}"
-                        else -> "System integrity check failed"
+                groupedThreats.forEach { (group, threats) ->
+                    println("║")
+                    println("║ Violation: $group")
+
+                    threats.forEachIndexed { index, threat ->
+                        val violation = threat.violation
+                        val name = violation::class.simpleName ?: "Unknown Violation"
+
+                        val detail = when (violation) {
+                            is IosViolation.Jailbreak.AppInstalled -> "App Id: ${violation.appId.orEmpty()}"
+                            is IosViolation.Jailbreak.URLSchemes -> "URL Scheme: ${violation.urlScheme.orEmpty()}"
+                            is IosViolation.Jailbreak.SuspiciousSymlinks -> "Path: ${violation.path.orEmpty()}"
+                            is IosViolation.Hook.FrameworkDetected -> "Framework: ${violation.name ?: "Unknown"}"
+                            is IosViolation.Simulator.Detected -> "Name: ${violation.name ?: "Unknown"}"
+                            is IosViolation.Location.MockAppInstalled -> "Apps: ${violation.packages}"
+                            else -> "System integrity check failed"
+                        }
+
+                        println("║   ${index + 1}. $name")
+                        println("║      Severity: ${violation.severity}")
+                        println("║      Detail: $detail")
                     }
-
-                    println("║   ${index + 1}. $name")
-                    println("║      Severity: ${violation.severity}")
-                    println("║      Detail: $detail")
                 }
             }
-        }
 
-        println("╚══════════════════════════════════════════════════════")
+            println("╚══════════════════════════════════════════════════════")
+        }
     }
 }
