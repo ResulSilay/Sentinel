@@ -117,28 +117,24 @@ internal fun SentinelDetectCard(
                         val threatName = threat.violation::class.simpleName.orEmpty()
                         val severity = threat.violation.severity
                         val isDetected = detected.contains(threat.violation::class)
+                        val isDangerColors = colors == DangerCardColors
 
                         HorizontalDivider(
                             thickness = 0.3.dp,
                             color = colors.textColor.copy(alpha = 0.2f)
                         )
 
-                        SentinelDetectCardItem(
+                        SentinelDetectItemCard(
                             title = threatName,
                             value = "${stringResource(resource = Res.string.severity)}: $severity",
-                            isDangerColors = colors == DangerCardColors,
+                            isDangerColors = isDangerColors,
                             isDetected = isDetected,
                             colors = colors
                         )
                     }
 
                     if (threats.isNotEmpty()) {
-                        HorizontalDivider(
-                            thickness = 0.3.dp,
-                            color = Color.Black.copy(alpha = 0.2f)
-                        )
-
-                        SentinelDetectCardItem(
+                        SentinelDetectItemCard(
                             modifier = Modifier.background(
                                 color = MaterialTheme.colorScheme.background.copy(alpha = 0.25f)
                             ),
@@ -153,7 +149,7 @@ internal fun SentinelDetectCard(
 }
 
 @Composable
-private fun SentinelDetectCardItem(
+private fun SentinelDetectItemCard(
     modifier: Modifier = Modifier,
     title: String = "",
     value: String,
@@ -163,12 +159,15 @@ private fun SentinelDetectCardItem(
     icon: Icons? = null,
 ) {
     val modifierBackground = when {
-        isDetected == true || isDetected == null -> Modifier.background(Color.Transparent)
+        isDetected == false && isDangerColors == true -> {
+            Modifier.background(
+                color = Color.DarkGray.copy(alpha = 0.75f),
+                shape = RoundedCornerShape(size = 8.dp)
+            )
+        }
 
-        else -> if (!isDetected && isDangerColors == true) {
-            Modifier.background(Color.DarkGray)
-        } else {
-            Modifier.background(Color.Transparent)
+        else -> {
+            Modifier.background(color = Color.Transparent)
         }
     }
 
