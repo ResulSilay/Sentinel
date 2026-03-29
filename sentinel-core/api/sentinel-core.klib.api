@@ -1,0 +1,268 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.resulsilay:sentinel-core>
+final enum class sentinel.core.type/RiskLevel : kotlin/Enum<sentinel.core.type/RiskLevel> { // sentinel.core.type/RiskLevel|null[0]
+    enum entry HIGH // sentinel.core.type/RiskLevel.HIGH|null[0]
+    enum entry LOW // sentinel.core.type/RiskLevel.LOW|null[0]
+    enum entry MEDIUM // sentinel.core.type/RiskLevel.MEDIUM|null[0]
+    enum entry SAFE // sentinel.core.type/RiskLevel.SAFE|null[0]
+
+    final val entries // sentinel.core.type/RiskLevel.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<sentinel.core.type/RiskLevel> // sentinel.core.type/RiskLevel.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): sentinel.core.type/RiskLevel // sentinel.core.type/RiskLevel.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<sentinel.core.type/RiskLevel> // sentinel.core.type/RiskLevel.values|values#static(){}[0]
+
+    final object Companion { // sentinel.core.type/RiskLevel.Companion|null[0]
+        final fun getLevel(kotlin/Int, kotlin/Int): sentinel.core.type/RiskLevel // sentinel.core.type/RiskLevel.Companion.getLevel|getLevel(kotlin.Int;kotlin.Int){}[0]
+    }
+}
+
+abstract interface sentinel.core.detector/SecurityDetector { // sentinel.core.detector/SecurityDetector|null[0]
+    abstract fun detect(): kotlin.collections/List<sentinel.core.detector/Threat>? // sentinel.core.detector/SecurityDetector.detect|detect(){}[0]
+}
+
+abstract interface sentinel.core.identity/Identity { // sentinel.core.identity/Identity|null[0]
+    abstract val appId // sentinel.core.identity/Identity.appId|{}appId[0]
+        abstract fun <get-appId>(): kotlin/String // sentinel.core.identity/Identity.appId.<get-appId>|<get-appId>(){}[0]
+    abstract val deviceId // sentinel.core.identity/Identity.deviceId|{}deviceId[0]
+        abstract fun <get-deviceId>(): kotlin/String // sentinel.core.identity/Identity.deviceId.<get-deviceId>|<get-deviceId>(){}[0]
+    abstract val hash // sentinel.core.identity/Identity.hash|{}hash[0]
+        abstract fun <get-hash>(): kotlin/String? // sentinel.core.identity/Identity.hash.<get-hash>|<get-hash>(){}[0]
+    abstract val platform // sentinel.core.identity/Identity.platform|{}platform[0]
+        abstract fun <get-platform>(): kotlin/String // sentinel.core.identity/Identity.platform.<get-platform>|<get-platform>(){}[0]
+    abstract val signature // sentinel.core.identity/Identity.signature|{}signature[0]
+        abstract fun <get-signature>(): kotlin/String? // sentinel.core.identity/Identity.signature.<get-signature>|<get-signature>(){}[0]
+}
+
+abstract class sentinel.core.report/SecurityReport { // sentinel.core.report/SecurityReport|null[0]
+    constructor <init>(kotlin.collections/List<sentinel.core.detector/Threat>, kotlin/Int, kotlin/Long) // sentinel.core.report/SecurityReport.<init>|<init>(kotlin.collections.List<sentinel.core.detector.Threat>;kotlin.Int;kotlin.Long){}[0]
+
+    final val riskLevel // sentinel.core.report/SecurityReport.riskLevel|{}riskLevel[0]
+        final fun <get-riskLevel>(): sentinel.core.type/RiskLevel // sentinel.core.report/SecurityReport.riskLevel.<get-riskLevel>|<get-riskLevel>(){}[0]
+    final val severity // sentinel.core.report/SecurityReport.severity|{}severity[0]
+        final fun <get-severity>(): kotlin/Int // sentinel.core.report/SecurityReport.severity.<get-severity>|<get-severity>(){}[0]
+    open val isDebugged // sentinel.core.report/SecurityReport.isDebugged|{}isDebugged[0]
+        open fun <get-isDebugged>(): kotlin/Boolean // sentinel.core.report/SecurityReport.isDebugged.<get-isDebugged>|<get-isDebugged>(){}[0]
+    open val isEmulator // sentinel.core.report/SecurityReport.isEmulator|{}isEmulator[0]
+        open fun <get-isEmulator>(): kotlin/Boolean // sentinel.core.report/SecurityReport.isEmulator.<get-isEmulator>|<get-isEmulator>(){}[0]
+    open val isHooked // sentinel.core.report/SecurityReport.isHooked|{}isHooked[0]
+        open fun <get-isHooked>(): kotlin/Boolean // sentinel.core.report/SecurityReport.isHooked.<get-isHooked>|<get-isHooked>(){}[0]
+    open val isJailbroken // sentinel.core.report/SecurityReport.isJailbroken|{}isJailbroken[0]
+        open fun <get-isJailbroken>(): kotlin/Boolean // sentinel.core.report/SecurityReport.isJailbroken.<get-isJailbroken>|<get-isJailbroken>(){}[0]
+    open val isMockLocation // sentinel.core.report/SecurityReport.isMockLocation|{}isMockLocation[0]
+        open fun <get-isMockLocation>(): kotlin/Boolean // sentinel.core.report/SecurityReport.isMockLocation.<get-isMockLocation>|<get-isMockLocation>(){}[0]
+    open val isRooted // sentinel.core.report/SecurityReport.isRooted|{}isRooted[0]
+        open fun <get-isRooted>(): kotlin/Boolean // sentinel.core.report/SecurityReport.isRooted.<get-isRooted>|<get-isRooted>(){}[0]
+    open val isSimulator // sentinel.core.report/SecurityReport.isSimulator|{}isSimulator[0]
+        open fun <get-isSimulator>(): kotlin/Boolean // sentinel.core.report/SecurityReport.isSimulator.<get-isSimulator>|<get-isSimulator>(){}[0]
+    open val isTampered // sentinel.core.report/SecurityReport.isTampered|{}isTampered[0]
+        open fun <get-isTampered>(): kotlin/Boolean // sentinel.core.report/SecurityReport.isTampered.<get-isTampered>|<get-isTampered>(){}[0]
+    open val threats // sentinel.core.report/SecurityReport.threats|{}threats[0]
+        open fun <get-threats>(): kotlin.collections/List<sentinel.core.detector/Threat> // sentinel.core.report/SecurityReport.threats.<get-threats>|<get-threats>(){}[0]
+    open val threshold // sentinel.core.report/SecurityReport.threshold|{}threshold[0]
+        open fun <get-threshold>(): kotlin/Int // sentinel.core.report/SecurityReport.threshold.<get-threshold>|<get-threshold>(){}[0]
+    open val timestamp // sentinel.core.report/SecurityReport.timestamp|{}timestamp[0]
+        open fun <get-timestamp>(): kotlin/Long // sentinel.core.report/SecurityReport.timestamp.<get-timestamp>|<get-timestamp>(){}[0]
+
+    final fun isCritical(): kotlin/Boolean // sentinel.core.report/SecurityReport.isCritical|isCritical(){}[0]
+    final fun isSafe(): kotlin/Boolean // sentinel.core.report/SecurityReport.isSafe|isSafe(){}[0]
+}
+
+abstract class sentinel.core.violation/SecurityViolation { // sentinel.core.violation/SecurityViolation|null[0]
+    constructor <init>(kotlin/Int) // sentinel.core.violation/SecurityViolation.<init>|<init>(kotlin.Int){}[0]
+
+    open val severity // sentinel.core.violation/SecurityViolation.severity|{}severity[0]
+        open fun <get-severity>(): kotlin/Int // sentinel.core.violation/SecurityViolation.severity.<get-severity>|<get-severity>(){}[0]
+}
+
+final class sentinel.core.detector/Threat { // sentinel.core.detector/Threat|null[0]
+    constructor <init>(sentinel.core.violation/SecurityViolation) // sentinel.core.detector/Threat.<init>|<init>(sentinel.core.violation.SecurityViolation){}[0]
+
+    final val violation // sentinel.core.detector/Threat.violation|{}violation[0]
+        final fun <get-violation>(): sentinel.core.violation/SecurityViolation // sentinel.core.detector/Threat.violation.<get-violation>|<get-violation>(){}[0]
+
+    final fun component1(): sentinel.core.violation/SecurityViolation // sentinel.core.detector/Threat.component1|component1(){}[0]
+    final fun copy(sentinel.core.violation/SecurityViolation = ...): sentinel.core.detector/Threat // sentinel.core.detector/Threat.copy|copy(sentinel.core.violation.SecurityViolation){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.core.detector/Threat.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // sentinel.core.detector/Threat.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // sentinel.core.detector/Threat.toString|toString(){}[0]
+}
+
+final class sentinel.core.guard/SentinelGuard { // sentinel.core.guard/SentinelGuard|null[0]
+    constructor <init>(sentinel.core.report/SecurityReport) // sentinel.core.guard/SentinelGuard.<init>|<init>(sentinel.core.report.SecurityReport){}[0]
+
+    final val report // sentinel.core.guard/SentinelGuard.report|{}report[0]
+        final fun <get-report>(): sentinel.core.report/SecurityReport // sentinel.core.guard/SentinelGuard.report.<get-report>|<get-report>(){}[0]
+
+    final inline fun onCompromised(kotlin/Function0<kotlin/Unit>) // sentinel.core.guard/SentinelGuard.onCompromised|onCompromised(kotlin.Function0<kotlin.Unit>){}[0]
+    final inline fun onCritical(kotlin/Function1<kotlin/Int, kotlin/Unit>) // sentinel.core.guard/SentinelGuard.onCritical|onCritical(kotlin.Function1<kotlin.Int,kotlin.Unit>){}[0]
+    final inline fun onDebugged(kotlin/Function0<kotlin/Unit>) // sentinel.core.guard/SentinelGuard.onDebugged|onDebugged(kotlin.Function0<kotlin.Unit>){}[0]
+    final inline fun onHooked(kotlin/Function0<kotlin/Unit>) // sentinel.core.guard/SentinelGuard.onHooked|onHooked(kotlin.Function0<kotlin.Unit>){}[0]
+    final inline fun onSafe(kotlin/Function0<kotlin/Unit>) // sentinel.core.guard/SentinelGuard.onSafe|onSafe(kotlin.Function0<kotlin.Unit>){}[0]
+    final inline fun onSimulated(kotlin/Function0<kotlin/Unit>) // sentinel.core.guard/SentinelGuard.onSimulated|onSimulated(kotlin.Function0<kotlin.Unit>){}[0]
+    final inline fun onTampered(kotlin/Function0<kotlin/Unit>) // sentinel.core.guard/SentinelGuard.onTampered|onTampered(kotlin.Function0<kotlin.Unit>){}[0]
+}
+
+final class sentinel.core.report/IosSecurityReport : sentinel.core.report/SecurityReport { // sentinel.core.report/IosSecurityReport|null[0]
+    constructor <init>(kotlin.collections/List<sentinel.core.detector/Threat>, kotlin/Int) // sentinel.core.report/IosSecurityReport.<init>|<init>(kotlin.collections.List<sentinel.core.detector.Threat>;kotlin.Int){}[0]
+
+    final val isDebugged // sentinel.core.report/IosSecurityReport.isDebugged|{}isDebugged[0]
+        final fun <get-isDebugged>(): kotlin/Boolean // sentinel.core.report/IosSecurityReport.isDebugged.<get-isDebugged>|<get-isDebugged>(){}[0]
+    final val isHooked // sentinel.core.report/IosSecurityReport.isHooked|{}isHooked[0]
+        final fun <get-isHooked>(): kotlin/Boolean // sentinel.core.report/IosSecurityReport.isHooked.<get-isHooked>|<get-isHooked>(){}[0]
+    final val isJailbroken // sentinel.core.report/IosSecurityReport.isJailbroken|{}isJailbroken[0]
+        final fun <get-isJailbroken>(): kotlin/Boolean // sentinel.core.report/IosSecurityReport.isJailbroken.<get-isJailbroken>|<get-isJailbroken>(){}[0]
+    final val isMockLocation // sentinel.core.report/IosSecurityReport.isMockLocation|{}isMockLocation[0]
+        final fun <get-isMockLocation>(): kotlin/Boolean // sentinel.core.report/IosSecurityReport.isMockLocation.<get-isMockLocation>|<get-isMockLocation>(){}[0]
+    final val isSimulator // sentinel.core.report/IosSecurityReport.isSimulator|{}isSimulator[0]
+        final fun <get-isSimulator>(): kotlin/Boolean // sentinel.core.report/IosSecurityReport.isSimulator.<get-isSimulator>|<get-isSimulator>(){}[0]
+    final val isTampered // sentinel.core.report/IosSecurityReport.isTampered|{}isTampered[0]
+        final fun <get-isTampered>(): kotlin/Boolean // sentinel.core.report/IosSecurityReport.isTampered.<get-isTampered>|<get-isTampered>(){}[0]
+    final val threats // sentinel.core.report/IosSecurityReport.threats|{}threats[0]
+        final fun <get-threats>(): kotlin.collections/List<sentinel.core.detector/Threat> // sentinel.core.report/IosSecurityReport.threats.<get-threats>|<get-threats>(){}[0]
+    final val threshold // sentinel.core.report/IosSecurityReport.threshold|{}threshold[0]
+        final fun <get-threshold>(): kotlin/Int // sentinel.core.report/IosSecurityReport.threshold.<get-threshold>|<get-threshold>(){}[0]
+}
+
+sealed class sentinel.core.violation/IosViolation : sentinel.core.violation/SecurityViolation { // sentinel.core.violation/IosViolation|null[0]
+    open val severity // sentinel.core.violation/IosViolation.severity|{}severity[0]
+        open fun <get-severity>(): kotlin/Int // sentinel.core.violation/IosViolation.severity.<get-severity>|<get-severity>(){}[0]
+
+    sealed class Debugger : sentinel.core.violation/IosViolation { // sentinel.core.violation/IosViolation.Debugger|null[0]
+        final object Debuggable : sentinel.core.violation/IosViolation.Debugger // sentinel.core.violation/IosViolation.Debugger.Debuggable|null[0]
+    }
+
+    sealed class Hook : sentinel.core.violation/IosViolation { // sentinel.core.violation/IosViolation.Hook|null[0]
+        final class FrameworkDetected : sentinel.core.violation/IosViolation.Hook { // sentinel.core.violation/IosViolation.Hook.FrameworkDetected|null[0]
+            constructor <init>(kotlin/String? = ...) // sentinel.core.violation/IosViolation.Hook.FrameworkDetected.<init>|<init>(kotlin.String?){}[0]
+
+            final val name // sentinel.core.violation/IosViolation.Hook.FrameworkDetected.name|{}name[0]
+                final fun <get-name>(): kotlin/String? // sentinel.core.violation/IosViolation.Hook.FrameworkDetected.name.<get-name>|<get-name>(){}[0]
+
+            final fun component1(): kotlin/String? // sentinel.core.violation/IosViolation.Hook.FrameworkDetected.component1|component1(){}[0]
+            final fun copy(kotlin/String? = ...): sentinel.core.violation/IosViolation.Hook.FrameworkDetected // sentinel.core.violation/IosViolation.Hook.FrameworkDetected.copy|copy(kotlin.String?){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.core.violation/IosViolation.Hook.FrameworkDetected.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // sentinel.core.violation/IosViolation.Hook.FrameworkDetected.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // sentinel.core.violation/IosViolation.Hook.FrameworkDetected.toString|toString(){}[0]
+        }
+
+        final class InlineHookDetected : sentinel.core.violation/IosViolation.Hook { // sentinel.core.violation/IosViolation.Hook.InlineHookDetected|null[0]
+            constructor <init>(kotlin/String? = ...) // sentinel.core.violation/IosViolation.Hook.InlineHookDetected.<init>|<init>(kotlin.String?){}[0]
+
+            final val name // sentinel.core.violation/IosViolation.Hook.InlineHookDetected.name|{}name[0]
+                final fun <get-name>(): kotlin/String? // sentinel.core.violation/IosViolation.Hook.InlineHookDetected.name.<get-name>|<get-name>(){}[0]
+
+            final fun component1(): kotlin/String? // sentinel.core.violation/IosViolation.Hook.InlineHookDetected.component1|component1(){}[0]
+            final fun copy(kotlin/String? = ...): sentinel.core.violation/IosViolation.Hook.InlineHookDetected // sentinel.core.violation/IosViolation.Hook.InlineHookDetected.copy|copy(kotlin.String?){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.core.violation/IosViolation.Hook.InlineHookDetected.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // sentinel.core.violation/IosViolation.Hook.InlineHookDetected.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // sentinel.core.violation/IosViolation.Hook.InlineHookDetected.toString|toString(){}[0]
+        }
+
+        final object FridaDetected : sentinel.core.violation/IosViolation.Hook // sentinel.core.violation/IosViolation.Hook.FridaDetected|null[0]
+    }
+
+    sealed class Jailbreak : sentinel.core.violation/IosViolation { // sentinel.core.violation/IosViolation.Jailbreak|null[0]
+        final class AppInstalled : sentinel.core.violation/IosViolation.Jailbreak { // sentinel.core.violation/IosViolation.Jailbreak.AppInstalled|null[0]
+            constructor <init>(kotlin/String? = ...) // sentinel.core.violation/IosViolation.Jailbreak.AppInstalled.<init>|<init>(kotlin.String?){}[0]
+
+            final val appId // sentinel.core.violation/IosViolation.Jailbreak.AppInstalled.appId|{}appId[0]
+                final fun <get-appId>(): kotlin/String? // sentinel.core.violation/IosViolation.Jailbreak.AppInstalled.appId.<get-appId>|<get-appId>(){}[0]
+
+            final fun component1(): kotlin/String? // sentinel.core.violation/IosViolation.Jailbreak.AppInstalled.component1|component1(){}[0]
+            final fun copy(kotlin/String? = ...): sentinel.core.violation/IosViolation.Jailbreak.AppInstalled // sentinel.core.violation/IosViolation.Jailbreak.AppInstalled.copy|copy(kotlin.String?){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.core.violation/IosViolation.Jailbreak.AppInstalled.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // sentinel.core.violation/IosViolation.Jailbreak.AppInstalled.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // sentinel.core.violation/IosViolation.Jailbreak.AppInstalled.toString|toString(){}[0]
+        }
+
+        final class Sandbox : sentinel.core.violation/IosViolation.Jailbreak { // sentinel.core.violation/IosViolation.Jailbreak.Sandbox|null[0]
+            constructor <init>(kotlin/String? = ...) // sentinel.core.violation/IosViolation.Jailbreak.Sandbox.<init>|<init>(kotlin.String?){}[0]
+
+            final val appId // sentinel.core.violation/IosViolation.Jailbreak.Sandbox.appId|{}appId[0]
+                final fun <get-appId>(): kotlin/String? // sentinel.core.violation/IosViolation.Jailbreak.Sandbox.appId.<get-appId>|<get-appId>(){}[0]
+
+            final fun component1(): kotlin/String? // sentinel.core.violation/IosViolation.Jailbreak.Sandbox.component1|component1(){}[0]
+            final fun copy(kotlin/String? = ...): sentinel.core.violation/IosViolation.Jailbreak.Sandbox // sentinel.core.violation/IosViolation.Jailbreak.Sandbox.copy|copy(kotlin.String?){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.core.violation/IosViolation.Jailbreak.Sandbox.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // sentinel.core.violation/IosViolation.Jailbreak.Sandbox.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // sentinel.core.violation/IosViolation.Jailbreak.Sandbox.toString|toString(){}[0]
+        }
+
+        final class SuspiciousSymlinks : sentinel.core.violation/IosViolation.Jailbreak { // sentinel.core.violation/IosViolation.Jailbreak.SuspiciousSymlinks|null[0]
+            constructor <init>(kotlin/String? = ...) // sentinel.core.violation/IosViolation.Jailbreak.SuspiciousSymlinks.<init>|<init>(kotlin.String?){}[0]
+
+            final val path // sentinel.core.violation/IosViolation.Jailbreak.SuspiciousSymlinks.path|{}path[0]
+                final fun <get-path>(): kotlin/String? // sentinel.core.violation/IosViolation.Jailbreak.SuspiciousSymlinks.path.<get-path>|<get-path>(){}[0]
+
+            final fun component1(): kotlin/String? // sentinel.core.violation/IosViolation.Jailbreak.SuspiciousSymlinks.component1|component1(){}[0]
+            final fun copy(kotlin/String? = ...): sentinel.core.violation/IosViolation.Jailbreak.SuspiciousSymlinks // sentinel.core.violation/IosViolation.Jailbreak.SuspiciousSymlinks.copy|copy(kotlin.String?){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.core.violation/IosViolation.Jailbreak.SuspiciousSymlinks.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // sentinel.core.violation/IosViolation.Jailbreak.SuspiciousSymlinks.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // sentinel.core.violation/IosViolation.Jailbreak.SuspiciousSymlinks.toString|toString(){}[0]
+        }
+
+        final class URLSchemes : sentinel.core.violation/IosViolation.Jailbreak { // sentinel.core.violation/IosViolation.Jailbreak.URLSchemes|null[0]
+            constructor <init>(kotlin/String? = ...) // sentinel.core.violation/IosViolation.Jailbreak.URLSchemes.<init>|<init>(kotlin.String?){}[0]
+
+            final val urlScheme // sentinel.core.violation/IosViolation.Jailbreak.URLSchemes.urlScheme|{}urlScheme[0]
+                final fun <get-urlScheme>(): kotlin/String? // sentinel.core.violation/IosViolation.Jailbreak.URLSchemes.urlScheme.<get-urlScheme>|<get-urlScheme>(){}[0]
+
+            final fun component1(): kotlin/String? // sentinel.core.violation/IosViolation.Jailbreak.URLSchemes.component1|component1(){}[0]
+            final fun copy(kotlin/String? = ...): sentinel.core.violation/IosViolation.Jailbreak.URLSchemes // sentinel.core.violation/IosViolation.Jailbreak.URLSchemes.copy|copy(kotlin.String?){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.core.violation/IosViolation.Jailbreak.URLSchemes.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // sentinel.core.violation/IosViolation.Jailbreak.URLSchemes.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // sentinel.core.violation/IosViolation.Jailbreak.URLSchemes.toString|toString(){}[0]
+        }
+    }
+
+    sealed class Location : sentinel.core.violation/IosViolation { // sentinel.core.violation/IosViolation.Location|null[0]
+        final class MockAppInstalled : sentinel.core.violation/IosViolation.Location { // sentinel.core.violation/IosViolation.Location.MockAppInstalled|null[0]
+            constructor <init>(kotlin.collections/List<kotlin/String>) // sentinel.core.violation/IosViolation.Location.MockAppInstalled.<init>|<init>(kotlin.collections.List<kotlin.String>){}[0]
+
+            final val packages // sentinel.core.violation/IosViolation.Location.MockAppInstalled.packages|{}packages[0]
+                final fun <get-packages>(): kotlin.collections/List<kotlin/String> // sentinel.core.violation/IosViolation.Location.MockAppInstalled.packages.<get-packages>|<get-packages>(){}[0]
+
+            final fun component1(): kotlin.collections/List<kotlin/String> // sentinel.core.violation/IosViolation.Location.MockAppInstalled.component1|component1(){}[0]
+            final fun copy(kotlin.collections/List<kotlin/String> = ...): sentinel.core.violation/IosViolation.Location.MockAppInstalled // sentinel.core.violation/IosViolation.Location.MockAppInstalled.copy|copy(kotlin.collections.List<kotlin.String>){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.core.violation/IosViolation.Location.MockAppInstalled.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // sentinel.core.violation/IosViolation.Location.MockAppInstalled.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // sentinel.core.violation/IosViolation.Location.MockAppInstalled.toString|toString(){}[0]
+        }
+    }
+
+    sealed class Simulator : sentinel.core.violation/IosViolation { // sentinel.core.violation/IosViolation.Simulator|null[0]
+        final class Detected : sentinel.core.violation/IosViolation.Simulator { // sentinel.core.violation/IosViolation.Simulator.Detected|null[0]
+            constructor <init>(kotlin/String? = ...) // sentinel.core.violation/IosViolation.Simulator.Detected.<init>|<init>(kotlin.String?){}[0]
+
+            final val name // sentinel.core.violation/IosViolation.Simulator.Detected.name|{}name[0]
+                final fun <get-name>(): kotlin/String? // sentinel.core.violation/IosViolation.Simulator.Detected.name.<get-name>|<get-name>(){}[0]
+
+            final fun component1(): kotlin/String? // sentinel.core.violation/IosViolation.Simulator.Detected.component1|component1(){}[0]
+            final fun copy(kotlin/String? = ...): sentinel.core.violation/IosViolation.Simulator.Detected // sentinel.core.violation/IosViolation.Simulator.Detected.copy|copy(kotlin.String?){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.core.violation/IosViolation.Simulator.Detected.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // sentinel.core.violation/IosViolation.Simulator.Detected.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // sentinel.core.violation/IosViolation.Simulator.Detected.toString|toString(){}[0]
+        }
+    }
+
+    sealed class Tamper : sentinel.core.violation/IosViolation { // sentinel.core.violation/IosViolation.Tamper|null[0]
+        final object BundleIdChanged : sentinel.core.violation/IosViolation.Tamper // sentinel.core.violation/IosViolation.Tamper.BundleIdChanged|null[0]
+
+        final object SignatureMismatch : sentinel.core.violation/IosViolation.Tamper // sentinel.core.violation/IosViolation.Tamper.SignatureMismatch|null[0]
+    }
+}
+
+final object sentinel.core.logger/SentinelLogger { // sentinel.core.logger/SentinelLogger|null[0]
+    final fun info(kotlin/String = ..., kotlin/String) // sentinel.core.logger/SentinelLogger.info|info(kotlin.String;kotlin.String){}[0]
+    final fun report(sentinel.core.report/SecurityReport) // sentinel.core.logger/SentinelLogger.report|report(sentinel.core.report.SecurityReport){}[0]
+}
+
+final fun (kotlin/String).sentinel.core.ext/toByteList(): kotlin.collections/List<kotlin/Byte> // sentinel.core.ext/toByteList|toByteList@kotlin.String(){}[0]
+final fun sentinel.core.violation/getGroupName(sentinel.core.violation/SecurityViolation): kotlin/String // sentinel.core.violation/getGroupName|getGroupName(sentinel.core.violation.SecurityViolation){}[0]

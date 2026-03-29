@@ -1,0 +1,101 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.resulsilay:sentinel-ui>
+final enum class sentinel.ui.screen.main.tab/SentinelTab : kotlin/Enum<sentinel.ui.screen.main.tab/SentinelTab> { // sentinel.ui.screen.main.tab/SentinelTab|null[0]
+    enum entry About // sentinel.ui.screen.main.tab/SentinelTab.About|null[0]
+    enum entry Dashboard // sentinel.ui.screen.main.tab/SentinelTab.Dashboard|null[0]
+
+    final val entries // sentinel.ui.screen.main.tab/SentinelTab.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<sentinel.ui.screen.main.tab/SentinelTab> // sentinel.ui.screen.main.tab/SentinelTab.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): sentinel.ui.screen.main.tab/SentinelTab // sentinel.ui.screen.main.tab/SentinelTab.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<sentinel.ui.screen.main.tab/SentinelTab> // sentinel.ui.screen.main.tab/SentinelTab.values|values#static(){}[0]
+}
+
+final class sentinel.ui.screen.dashboard.composable/SentinelCardColors { // sentinel.ui.screen.dashboard.composable/SentinelCardColors|null[0]
+    constructor <init>(kotlin.collections/List<androidx.compose.ui.graphics/Color>, kotlin.collections/List<androidx.compose.ui.graphics/Color>, androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color) // sentinel.ui.screen.dashboard.composable/SentinelCardColors.<init>|<init>(kotlin.collections.List<androidx.compose.ui.graphics.Color>;kotlin.collections.List<androidx.compose.ui.graphics.Color>;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color){}[0]
+
+    final val backgroundGradient // sentinel.ui.screen.dashboard.composable/SentinelCardColors.backgroundGradient|{}backgroundGradient[0]
+        final fun <get-backgroundGradient>(): kotlin.collections/List<androidx.compose.ui.graphics/Color> // sentinel.ui.screen.dashboard.composable/SentinelCardColors.backgroundGradient.<get-backgroundGradient>|<get-backgroundGradient>(){}[0]
+    final val borderGradient // sentinel.ui.screen.dashboard.composable/SentinelCardColors.borderGradient|{}borderGradient[0]
+        final fun <get-borderGradient>(): kotlin.collections/List<androidx.compose.ui.graphics/Color> // sentinel.ui.screen.dashboard.composable/SentinelCardColors.borderGradient.<get-borderGradient>|<get-borderGradient>(){}[0]
+    final val iconColor // sentinel.ui.screen.dashboard.composable/SentinelCardColors.iconColor|{}iconColor[0]
+        final fun <get-iconColor>(): androidx.compose.ui.graphics/Color // sentinel.ui.screen.dashboard.composable/SentinelCardColors.iconColor.<get-iconColor>|<get-iconColor>(){}[0]
+    final val shadowColor // sentinel.ui.screen.dashboard.composable/SentinelCardColors.shadowColor|{}shadowColor[0]
+        final fun <get-shadowColor>(): androidx.compose.ui.graphics/Color // sentinel.ui.screen.dashboard.composable/SentinelCardColors.shadowColor.<get-shadowColor>|<get-shadowColor>(){}[0]
+    final val textColor // sentinel.ui.screen.dashboard.composable/SentinelCardColors.textColor|{}textColor[0]
+        final fun <get-textColor>(): androidx.compose.ui.graphics/Color // sentinel.ui.screen.dashboard.composable/SentinelCardColors.textColor.<get-textColor>|<get-textColor>(){}[0]
+
+    final fun component1(): kotlin.collections/List<androidx.compose.ui.graphics/Color> // sentinel.ui.screen.dashboard.composable/SentinelCardColors.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/List<androidx.compose.ui.graphics/Color> // sentinel.ui.screen.dashboard.composable/SentinelCardColors.component2|component2(){}[0]
+    final fun component3(): androidx.compose.ui.graphics/Color // sentinel.ui.screen.dashboard.composable/SentinelCardColors.component3|component3(){}[0]
+    final fun component4(): androidx.compose.ui.graphics/Color // sentinel.ui.screen.dashboard.composable/SentinelCardColors.component4|component4(){}[0]
+    final fun component5(): androidx.compose.ui.graphics/Color // sentinel.ui.screen.dashboard.composable/SentinelCardColors.component5|component5(){}[0]
+    final fun copy(kotlin.collections/List<androidx.compose.ui.graphics/Color> = ..., kotlin.collections/List<androidx.compose.ui.graphics/Color> = ..., androidx.compose.ui.graphics/Color = ..., androidx.compose.ui.graphics/Color = ..., androidx.compose.ui.graphics/Color = ...): sentinel.ui.screen.dashboard.composable/SentinelCardColors // sentinel.ui.screen.dashboard.composable/SentinelCardColors.copy|copy(kotlin.collections.List<androidx.compose.ui.graphics.Color>;kotlin.collections.List<androidx.compose.ui.graphics.Color>;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.ui.screen.dashboard.composable/SentinelCardColors.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // sentinel.ui.screen.dashboard.composable/SentinelCardColors.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // sentinel.ui.screen.dashboard.composable/SentinelCardColors.toString|toString(){}[0]
+}
+
+final class sentinel.ui.screen.dashboard.model/GroupedViolation { // sentinel.ui.screen.dashboard.model/GroupedViolation|null[0]
+    constructor <init>(kotlin/String, kotlin/Int, kotlin/Boolean, kotlin.collections/List<sentinel.core.detector/Threat>, kotlin.collections/Set<kotlin.reflect/KClass<out sentinel.core.violation/SecurityViolation>>) // sentinel.ui.screen.dashboard.model/GroupedViolation.<init>|<init>(kotlin.String;kotlin.Int;kotlin.Boolean;kotlin.collections.List<sentinel.core.detector.Threat>;kotlin.collections.Set<kotlin.reflect.KClass<out|sentinel.core.violation.SecurityViolation>>){}[0]
+
+    final val detectedClasses // sentinel.ui.screen.dashboard.model/GroupedViolation.detectedClasses|{}detectedClasses[0]
+        final fun <get-detectedClasses>(): kotlin.collections/Set<kotlin.reflect/KClass<out sentinel.core.violation/SecurityViolation>> // sentinel.ui.screen.dashboard.model/GroupedViolation.detectedClasses.<get-detectedClasses>|<get-detectedClasses>(){}[0]
+    final val groupName // sentinel.ui.screen.dashboard.model/GroupedViolation.groupName|{}groupName[0]
+        final fun <get-groupName>(): kotlin/String // sentinel.ui.screen.dashboard.model/GroupedViolation.groupName.<get-groupName>|<get-groupName>(){}[0]
+    final val hasDetected // sentinel.ui.screen.dashboard.model/GroupedViolation.hasDetected|{}hasDetected[0]
+        final fun <get-hasDetected>(): kotlin/Boolean // sentinel.ui.screen.dashboard.model/GroupedViolation.hasDetected.<get-hasDetected>|<get-hasDetected>(){}[0]
+    final val severity // sentinel.ui.screen.dashboard.model/GroupedViolation.severity|{}severity[0]
+        final fun <get-severity>(): kotlin/Int // sentinel.ui.screen.dashboard.model/GroupedViolation.severity.<get-severity>|<get-severity>(){}[0]
+    final val threats // sentinel.ui.screen.dashboard.model/GroupedViolation.threats|{}threats[0]
+        final fun <get-threats>(): kotlin.collections/List<sentinel.core.detector/Threat> // sentinel.ui.screen.dashboard.model/GroupedViolation.threats.<get-threats>|<get-threats>(){}[0]
+
+    final fun component1(): kotlin/String // sentinel.ui.screen.dashboard.model/GroupedViolation.component1|component1(){}[0]
+    final fun component2(): kotlin/Int // sentinel.ui.screen.dashboard.model/GroupedViolation.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean // sentinel.ui.screen.dashboard.model/GroupedViolation.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/List<sentinel.core.detector/Threat> // sentinel.ui.screen.dashboard.model/GroupedViolation.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/Set<kotlin.reflect/KClass<out sentinel.core.violation/SecurityViolation>> // sentinel.ui.screen.dashboard.model/GroupedViolation.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Int = ..., kotlin/Boolean = ..., kotlin.collections/List<sentinel.core.detector/Threat> = ..., kotlin.collections/Set<kotlin.reflect/KClass<out sentinel.core.violation/SecurityViolation>> = ...): sentinel.ui.screen.dashboard.model/GroupedViolation // sentinel.ui.screen.dashboard.model/GroupedViolation.copy|copy(kotlin.String;kotlin.Int;kotlin.Boolean;kotlin.collections.List<sentinel.core.detector.Threat>;kotlin.collections.Set<kotlin.reflect.KClass<out|sentinel.core.violation.SecurityViolation>>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // sentinel.ui.screen.dashboard.model/GroupedViolation.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // sentinel.ui.screen.dashboard.model/GroupedViolation.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // sentinel.ui.screen.dashboard.model/GroupedViolation.toString|toString(){}[0]
+}
+
+final val com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_array$stableprop // com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_array$stableprop|#static{}com_rs_sentinel_ui_resources_Res_array$stableprop[0]
+final val com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_drawable$stableprop // com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_drawable$stableprop|#static{}com_rs_sentinel_ui_resources_Res_drawable$stableprop[0]
+final val com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_font$stableprop // com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_font$stableprop|#static{}com_rs_sentinel_ui_resources_Res_font$stableprop[0]
+final val com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_plurals$stableprop // com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_plurals$stableprop|#static{}com_rs_sentinel_ui_resources_Res_plurals$stableprop[0]
+final val com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_string$stableprop // com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_string$stableprop|#static{}com_rs_sentinel_ui_resources_Res_string$stableprop[0]
+final val sentinel.ui.screen.dashboard.composable/DangerCardColors // sentinel.ui.screen.dashboard.composable/DangerCardColors|{}DangerCardColors[0]
+    final fun <get-DangerCardColors>(): sentinel.ui.screen.dashboard.composable/SentinelCardColors // sentinel.ui.screen.dashboard.composable/DangerCardColors.<get-DangerCardColors>|<get-DangerCardColors>(){}[0]
+final val sentinel.ui.screen.dashboard.composable/SafeCardColors // sentinel.ui.screen.dashboard.composable/SafeCardColors|{}SafeCardColors[0]
+    final fun <get-SafeCardColors>(): sentinel.ui.screen.dashboard.composable/SentinelCardColors // sentinel.ui.screen.dashboard.composable/SafeCardColors.<get-SafeCardColors>|<get-SafeCardColors>(){}[0]
+final val sentinel.ui.screen.dashboard.composable/sentinel_ui_screen_dashboard_composable_SentinelCardColors$stableprop // sentinel.ui.screen.dashboard.composable/sentinel_ui_screen_dashboard_composable_SentinelCardColors$stableprop|#static{}sentinel_ui_screen_dashboard_composable_SentinelCardColors$stableprop[0]
+final val sentinel.ui.screen.dashboard.model/sentinel_ui_screen_dashboard_model_GroupedViolation$stableprop // sentinel.ui.screen.dashboard.model/sentinel_ui_screen_dashboard_model_GroupedViolation$stableprop|#static{}sentinel_ui_screen_dashboard_model_GroupedViolation$stableprop[0]
+final val sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Error$stableprop // sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Error$stableprop|#static{}sentinel_ui_screen_dashboard_SentinelDashboardState_Error$stableprop[0]
+final val sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Loading$stableprop // sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Loading$stableprop|#static{}sentinel_ui_screen_dashboard_SentinelDashboardState_Loading$stableprop[0]
+final val sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Success$stableprop // sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Success$stableprop|#static{}sentinel_ui_screen_dashboard_SentinelDashboardState_Success$stableprop[0]
+
+final fun (androidx.compose.ui/Modifier).sentinel.ui.ext/sentinelGradientBackground(sentinel.core.type/RiskLevel? = ...): androidx.compose.ui/Modifier // sentinel.ui.ext/sentinelGradientBackground|sentinelGradientBackground@androidx.compose.ui.Modifier(sentinel.core.type.RiskLevel?){}[0]
+final fun com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_array$stableprop_getter(): kotlin/Int // com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_array$stableprop_getter|com_rs_sentinel_ui_resources_Res_array$stableprop_getter(){}[0]
+final fun com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_drawable$stableprop_getter(): kotlin/Int // com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_drawable$stableprop_getter|com_rs_sentinel_ui_resources_Res_drawable$stableprop_getter(){}[0]
+final fun com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_font$stableprop_getter(): kotlin/Int // com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_font$stableprop_getter|com_rs_sentinel_ui_resources_Res_font$stableprop_getter(){}[0]
+final fun com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_plurals$stableprop_getter(): kotlin/Int // com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_plurals$stableprop_getter|com_rs_sentinel_ui_resources_Res_plurals$stableprop_getter(){}[0]
+final fun com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_string$stableprop_getter(): kotlin/Int // com.rs.sentinel.ui.resources/com_rs_sentinel_ui_resources_Res_string$stableprop_getter|com_rs_sentinel_ui_resources_Res_string$stableprop_getter(){}[0]
+final fun sentinel.ui.component/SentinelRiskLevelBar(androidx.compose.ui/Modifier?, sentinel.core.type/RiskLevel, kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // sentinel.ui.component/SentinelRiskLevelBar|SentinelRiskLevelBar(androidx.compose.ui.Modifier?;sentinel.core.type.RiskLevel;kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun sentinel.ui.screen.dashboard.composable/SentinelRiskLevelCard(sentinel.core.type/RiskLevel, kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int) // sentinel.ui.screen.dashboard.composable/SentinelRiskLevelCard|SentinelRiskLevelCard(sentinel.core.type.RiskLevel;kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun sentinel.ui.screen.dashboard.composable/sentinel_ui_screen_dashboard_composable_SentinelCardColors$stableprop_getter(): kotlin/Int // sentinel.ui.screen.dashboard.composable/sentinel_ui_screen_dashboard_composable_SentinelCardColors$stableprop_getter|sentinel_ui_screen_dashboard_composable_SentinelCardColors$stableprop_getter(){}[0]
+final fun sentinel.ui.screen.dashboard.model/sentinel_ui_screen_dashboard_model_GroupedViolation$stableprop_getter(): kotlin/Int // sentinel.ui.screen.dashboard.model/sentinel_ui_screen_dashboard_model_GroupedViolation$stableprop_getter|sentinel_ui_screen_dashboard_model_GroupedViolation$stableprop_getter(){}[0]
+final fun sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Error$stableprop_getter(): kotlin/Int // sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Error$stableprop_getter|sentinel_ui_screen_dashboard_SentinelDashboardState_Error$stableprop_getter(){}[0]
+final fun sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Loading$stableprop_getter(): kotlin/Int // sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Loading$stableprop_getter|sentinel_ui_screen_dashboard_SentinelDashboardState_Loading$stableprop_getter(){}[0]
+final fun sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Success$stableprop_getter(): kotlin/Int // sentinel.ui.screen.dashboard/sentinel_ui_screen_dashboard_SentinelDashboardState_Success$stableprop_getter|sentinel_ui_screen_dashboard_SentinelDashboardState_Success$stableprop_getter(){}[0]
+final fun sentinel.ui.screen.main/SentinelMainScreen(androidx.compose.ui/Modifier?, androidx.compose.ui/Modifier?, sentinel/Sentinel, kotlin/String, kotlin/String, kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // sentinel.ui.screen.main/SentinelMainScreen|SentinelMainScreen(androidx.compose.ui.Modifier?;androidx.compose.ui.Modifier?;sentinel.Sentinel;kotlin.String;kotlin.String;kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun sentinel.ui.theme/SentinelTheme(kotlin/Boolean, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // sentinel.ui.theme/SentinelTheme|SentinelTheme(kotlin.Boolean;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun sentinel.ui.violation/getGroupName(sentinel.core.violation/SecurityViolation): kotlin/String // sentinel.ui.violation/getGroupName|getGroupName(sentinel.core.violation.SecurityViolation){}[0]
+final fun sentinel.ui.violation/getViolations(): kotlin.collections/List<sentinel.core.violation/SecurityViolation> // sentinel.ui.violation/getViolations|getViolations(){}[0]

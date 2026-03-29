@@ -1,0 +1,66 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.resulsilay:sentinel>
+final class sentinel/Builder { // sentinel/Builder|null[0]
+    constructor <init>() // sentinel/Builder.<init>|<init>(){}[0]
+
+    final fun addDetector(sentinel.core.detector/SecurityDetector): sentinel/Builder // sentinel/Builder.addDetector|addDetector(sentinel.core.detector.SecurityDetector){}[0]
+    final fun build(): sentinel/Sentinel // sentinel/Builder.build|build(){}[0]
+    final fun config(kotlin/Function1<sentinel/Config, kotlin/Unit>): sentinel/Config // sentinel/Builder.config|config(kotlin.Function1<sentinel.Config,kotlin.Unit>){}[0]
+}
+
+final class sentinel/Config { // sentinel/Config|null[0]
+    constructor <init>(kotlin.collections/List<kotlin/Byte>? = ..., kotlin.collections/List<kotlin/Byte>? = ..., kotlin.collections/List<kotlin/Byte>? = ..., kotlin/Int = ..., kotlin/Boolean = ...) // sentinel/Config.<init>|<init>(kotlin.collections.List<kotlin.Byte>?;kotlin.collections.List<kotlin.Byte>?;kotlin.collections.List<kotlin.Byte>?;kotlin.Int;kotlin.Boolean){}[0]
+
+    final var appId // sentinel/Config.appId|{}appId[0]
+        final fun <get-appId>(): kotlin.collections/List<kotlin/Byte>? // sentinel/Config.appId.<get-appId>|<get-appId>(){}[0]
+        final fun <set-appId>(kotlin.collections/List<kotlin/Byte>?) // sentinel/Config.appId.<set-appId>|<set-appId>(kotlin.collections.List<kotlin.Byte>?){}[0]
+    final var hash // sentinel/Config.hash|{}hash[0]
+        final fun <get-hash>(): kotlin.collections/List<kotlin/Byte>? // sentinel/Config.hash.<get-hash>|<get-hash>(){}[0]
+        final fun <set-hash>(kotlin.collections/List<kotlin/Byte>?) // sentinel/Config.hash.<set-hash>|<set-hash>(kotlin.collections.List<kotlin.Byte>?){}[0]
+    final var isLoggingEnabled // sentinel/Config.isLoggingEnabled|{}isLoggingEnabled[0]
+        final fun <get-isLoggingEnabled>(): kotlin/Boolean // sentinel/Config.isLoggingEnabled.<get-isLoggingEnabled>|<get-isLoggingEnabled>(){}[0]
+        final fun <set-isLoggingEnabled>(kotlin/Boolean) // sentinel/Config.isLoggingEnabled.<set-isLoggingEnabled>|<set-isLoggingEnabled>(kotlin.Boolean){}[0]
+    final var signature // sentinel/Config.signature|{}signature[0]
+        final fun <get-signature>(): kotlin.collections/List<kotlin/Byte>? // sentinel/Config.signature.<get-signature>|<get-signature>(){}[0]
+        final fun <set-signature>(kotlin.collections/List<kotlin/Byte>?) // sentinel/Config.signature.<set-signature>|<set-signature>(kotlin.collections.List<kotlin.Byte>?){}[0]
+    final var threshold // sentinel/Config.threshold|{}threshold[0]
+        final fun <get-threshold>(): kotlin/Int // sentinel/Config.threshold.<get-threshold>|<get-threshold>(){}[0]
+        final fun <set-threshold>(kotlin/Int) // sentinel/Config.threshold.<set-threshold>|<set-threshold>(kotlin.Int){}[0]
+
+    final fun component1(): kotlin.collections/List<kotlin/Byte>? // sentinel/Config.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/List<kotlin/Byte>? // sentinel/Config.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/List<kotlin/Byte>? // sentinel/Config.component3|component3(){}[0]
+    final fun component4(): kotlin/Int // sentinel/Config.component4|component4(){}[0]
+    final fun component5(): kotlin/Boolean // sentinel/Config.component5|component5(){}[0]
+    final fun copy(kotlin.collections/List<kotlin/Byte>? = ..., kotlin.collections/List<kotlin/Byte>? = ..., kotlin.collections/List<kotlin/Byte>? = ..., kotlin/Int = ..., kotlin/Boolean = ...): sentinel/Config // sentinel/Config.copy|copy(kotlin.collections.List<kotlin.Byte>?;kotlin.collections.List<kotlin.Byte>?;kotlin.collections.List<kotlin.Byte>?;kotlin.Int;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // sentinel/Config.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // sentinel/Config.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // sentinel/Config.toString|toString(){}[0]
+}
+
+final class sentinel/Sentinel { // sentinel/Sentinel|null[0]
+    final val config // sentinel/Sentinel.config|{}config[0]
+        final fun <get-config>(): sentinel/Config // sentinel/Sentinel.config.<get-config>|<get-config>(){}[0]
+
+    final suspend fun inspect(): sentinel.core.report/SecurityReport // sentinel/Sentinel.inspect|inspect(){}[0]
+
+    final object Companion { // sentinel/Sentinel.Companion|null[0]
+        final var Identity // sentinel/Sentinel.Companion.Identity|{}Identity[0]
+            final fun <get-Identity>(): sentinel.core.identity/Identity // sentinel/Sentinel.Companion.Identity.<get-Identity>|<get-Identity>(){}[0]
+    }
+}
+
+final fun (sentinel/Builder).sentinel/all(): sentinel/Builder // sentinel/all|all@sentinel.Builder(){}[0]
+final fun (sentinel/Builder).sentinel/debug(): sentinel/Builder // sentinel/debug|debug@sentinel.Builder(){}[0]
+final fun (sentinel/Builder).sentinel/hook(): sentinel/Builder // sentinel/hook|hook@sentinel.Builder(){}[0]
+final fun (sentinel/Builder).sentinel/jailbreak(): sentinel/Builder // sentinel/jailbreak|jailbreak@sentinel.Builder(){}[0]
+final fun (sentinel/Builder).sentinel/simulator(): sentinel/Builder // sentinel/simulator|simulator@sentinel.Builder(){}[0]
+final fun (sentinel/Builder).sentinel/tamper(): sentinel/Builder // sentinel/tamper|tamper@sentinel.Builder(){}[0]
+final fun (sentinel/Sentinel.Companion).sentinel/configure(kotlin/Function1<sentinel/Builder, kotlin/Unit>): sentinel/Sentinel // sentinel/configure|configure@sentinel.Sentinel.Companion(kotlin.Function1<sentinel.Builder,kotlin.Unit>){}[0]
+final suspend fun (sentinel/Sentinel).sentinel/scan(kotlin/Long = ..., kotlin/Function1<sentinel.core.guard/SentinelGuard, kotlin/Unit>) // sentinel/scan|scan@sentinel.Sentinel(kotlin.Long;kotlin.Function1<sentinel.core.guard.SentinelGuard,kotlin.Unit>){}[0]

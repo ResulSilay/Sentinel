@@ -16,6 +16,7 @@ constraintlayout = "2.2.1"
 lifecycleLivedataKtx = "2.10.0"
 lifecycleViewmodelKtx = "2.10.0"
 fragmentKtx = "1.8.9"
+binaryCompatibilityValidator = "0.18.1"
 
 [libraries]
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinReflect" }
@@ -53,4 +54,5 @@ vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "
 android-lint = { id = "com.android.lint", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-fusedlibrary = { id = "com.android.fused-library", version.ref = "agp" }
+kotlinx-binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binaryCompatibilityValidator" }
 
