@@ -7,7 +7,7 @@ android {
     namespace = "com.rs.sample.android"
 
     compileSdk {
-        version = release(36)
+        version = release(version = 36)
     }
 
     defaultConfig {
@@ -30,12 +30,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     kotlin {
-        jvmToolchain(17)
+        jvmToolchain(jdkVersion = 21)
     }
 }
 

@@ -18,7 +18,7 @@
 
     <string name="risk_level">Risk Level</string>
     <string name="severity">Severity</string>
-    <string name="total_severity">Total Severity</string>
+    <string name="total_severity">Total Violation Severity</string>
     <string name="detectors">Detectors</string>
 
     <string name="check_root">Root Access</string>
