@@ -164,8 +164,6 @@ sealed class sentinel.core.violation/IosViolation : sentinel.core.violation/Secu
             final fun hashCode(): kotlin/Int // sentinel.core.violation/IosViolation.Hook.InlineHookDetected.hashCode|hashCode(){}[0]
             final fun toString(): kotlin/String // sentinel.core.violation/IosViolation.Hook.InlineHookDetected.toString|toString(){}[0]
         }
-
-        final object FridaDetected : sentinel.core.violation/IosViolation.Hook // sentinel.core.violation/IosViolation.Hook.FridaDetected|null[0]
     }
 
     sealed class Jailbreak : sentinel.core.violation/IosViolation { // sentinel.core.violation/IosViolation.Jailbreak|null[0]
