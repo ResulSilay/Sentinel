@@ -19,11 +19,9 @@ runtime environments and detect potential security threats in real time on both 
 > **Note:** This library is currently under active development. Some features, especially on iOS may
 > be incomplete or experimental.
 
-<!--
-<a href="https://play.google.com/store/apps/details?id=com.rs.sentinel.app">
+<a href="https://play.google.com/store/apps/details?id=com.rs.sentinel">
     <img src="art/google-play-badge.png" width="200" alt="sentinel"/>
 </a>
--->
 
 <p align="center">
   <img alt="image" src="art/header.png" />
