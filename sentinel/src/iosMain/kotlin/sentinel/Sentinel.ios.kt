@@ -7,7 +7,7 @@ import sentinel.core.logger.SentinelLogger
 import sentinel.core.report.IosSecurityReport
 import sentinel.core.report.SecurityReport
 import sentinel.kit.runtime.HookRuntime
-import sentinel.runtime.InstallScope
+import sentinel.runtime.SecurityScope
 import sentinel.runtime.Runtime
 
 actual class Sentinel internal constructor(
@@ -19,7 +19,7 @@ actual class Sentinel internal constructor(
         HookRuntime.initialize()
     }
 
-    actual fun runtime(block: InstallScope.() -> Unit) {
+    actual fun runtime(block: SecurityScope.() -> Unit) {
         Runtime.activate(
             block = block,
             provider = {

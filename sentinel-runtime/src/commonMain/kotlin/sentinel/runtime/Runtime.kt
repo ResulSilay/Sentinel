@@ -9,7 +9,7 @@ object Runtime {
     private var reportProvider: (() -> SecurityReport)? = null
 
     fun activate(
-        block: InstallScope.() -> Unit,
+        block: SecurityScope.() -> Unit,
         provider: () -> SecurityReport,
     ) {
         this.activeScope = Scope().apply(block)

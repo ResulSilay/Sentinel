@@ -4,7 +4,7 @@ import sentinel.core.report.SecurityReport
 import sentinel.core.violation.SecurityViolation
 import sentinel.core.violation.IosViolation
 
-actual class Scope : InstallScope() {
+actual class Scope : SecurityScope() {
 
     actual fun dispatch(violation: SecurityViolation, report: SecurityReport) {
         when (violation) {
