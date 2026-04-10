@@ -224,6 +224,8 @@ sentinel.runtime {
 Sentinel Monitor is a monitoring infrastructure that tracks application-layer vulnerabilities and
 suspicious activities in real-time and reports these threats.
 
+https://github.com/user-attachments/assets/acfb35ac-61c4-492e-ae42-a7576f2badb1
+
 ```gradle
 implementation("io.github.resulsilay:sentinel-monitor:1.5.0-beta")
 ```
