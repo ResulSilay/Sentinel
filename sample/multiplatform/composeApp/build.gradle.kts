@@ -53,11 +53,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.rs.sentinel"
+    namespace = "co.rexiox.sentinel"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.rs.sentinel"
+        applicationId = "co.rexiox.sentinel"
         minSdk = 24
         targetSdk = 36
         versionCode = 4

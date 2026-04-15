@@ -5,7 +5,7 @@
 // - Show manifest properties: true
 // - Show declarations: true
 
-// Library unique name: <io.github.resulsilay:sentinel-runtime>
+// Library unique name: <co.rexiox:sentinel-runtime>
 final class sentinel.runtime/Scope : sentinel.runtime/SecurityScope { // sentinel.runtime/Scope|null[0]
     constructor <init>() // sentinel.runtime/Scope.<init>|<init>(){}[0]
 

@@ -21,8 +21,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.rs.sentinel.ui.resources.Res
-import com.rs.sentinel.ui.resources.error
+import co.rexiox.sentinel.ui.resources.Res
+import co.rexiox.sentinel.ui.resources.error
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import sentinel.Sentinel

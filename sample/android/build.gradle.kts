@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    namespace = "com.rs.sample.android"
+    namespace = "co.rexiox.sample.android"
 
     compileSdk {
         version = release(version = 36)
     }
 
     defaultConfig {
-        applicationId = "com.rs.sample.android"
+        applicationId = "co.rexiox.sample.android"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

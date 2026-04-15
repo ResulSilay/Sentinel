@@ -4,11 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import org.jetbrains.compose.resources.Font
-import com.rs.sentinel.ui.resources.Res
-import com.rs.sentinel.ui.resources.inter_bold
-import com.rs.sentinel.ui.resources.inter_medium
-import com.rs.sentinel.ui.resources.inter_regular
-import com.rs.sentinel.ui.resources.inter_semibold
+import co.rexiox.sentinel.ui.resources.Res
+import co.rexiox.sentinel.ui.resources.inter_bold
+import co.rexiox.sentinel.ui.resources.inter_medium
+import co.rexiox.sentinel.ui.resources.inter_regular
+import co.rexiox.sentinel.ui.resources.inter_semibold
 
 internal val SentinelFont
     @Composable

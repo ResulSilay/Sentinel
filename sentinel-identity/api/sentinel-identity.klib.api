@@ -5,7 +5,7 @@
 // - Show manifest properties: true
 // - Show declarations: true
 
-// Library unique name: <io.github.resulsilay:sentinel-identity>
+// Library unique name: <co.rexiox:sentinel-identity>
 final class sentinel.identity/Identity : sentinel.core.identity/Identity { // sentinel.identity/Identity|null[0]
     constructor <init>(kotlin/Any? = ...) // sentinel.identity/Identity.<init>|<init>(kotlin.Any?){}[0]
 

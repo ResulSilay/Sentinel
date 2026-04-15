@@ -10,8 +10,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.rs.sentinel.ui.resources.Res
-import com.rs.sentinel.ui.resources.detectors
+import co.rexiox.sentinel.ui.resources.Res
+import co.rexiox.sentinel.ui.resources.detectors
 import org.jetbrains.compose.resources.stringResource
 import sentinel.core.detector.Threat
 import sentinel.ui.screen.dashboard.SentinelDashboardState

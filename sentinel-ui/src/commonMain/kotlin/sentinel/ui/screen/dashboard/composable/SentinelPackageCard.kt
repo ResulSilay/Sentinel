@@ -15,10 +15,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.rs.sentinel.ui.resources.Res
-import com.rs.sentinel.ui.resources.app_id
-import com.rs.sentinel.ui.resources.app_signature
-import com.rs.sentinel.ui.resources.ic_sentinel_launcher
+import co.rexiox.sentinel.ui.resources.Res
+import co.rexiox.sentinel.ui.resources.app_id
+import co.rexiox.sentinel.ui.resources.app_signature
+import co.rexiox.sentinel.ui.resources.ic_sentinel_launcher
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 

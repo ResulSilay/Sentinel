@@ -5,7 +5,7 @@
 // - Show manifest properties: true
 // - Show declarations: true
 
-// Library unique name: <io.github.resulsilay:detector>
+// Library unique name: <co.rexiox:detector>
 final class sentinel.kit.detector/DebugDetector : sentinel.core.detector/SecurityDetector { // sentinel.kit.detector/DebugDetector|null[0]
     constructor <init>() // sentinel.kit.detector/DebugDetector.<init>|<init>(){}[0]
 

@@ -1,18 +1,18 @@
 object Config {
 
-    const val NAMESPACE = "com.rs.sentinel"
+    const val NAMESPACE = "co.rexiox.sentinel"
 
     object Version {
 
         const val MIN_SDK = 24
         const val COMPILE_SDK = 36
-        const val NAME = "1.5.2-beta"
+        const val NAME = "1.6.0-beta"
     }
 
     object Publishing {
 
-        const val GROUP_ID = "io.github.resulsilay"
-        const val URL = "https://github.com/ResulSilay/Sentinel"
+        const val GROUP_ID = "co.rexiox"
+        const val URL = "https://github.com/rexiox/sentinel"
 
         object License {
 
@@ -22,16 +22,16 @@ object Config {
 
         object Developer {
 
-            const val ID = "resulsilay"
-            const val NAME = "Resul Silay"
-            const val EMAIL = "resulsilay@gmail.com"
+            const val ID = "rexiox"
+            const val NAME = "REXIOX"
+            const val EMAIL = "r3x.lab@gmail.com"
         }
 
         object SCM {
 
-            const val URL = "https://github.com/ResulSilay/Sentinel"
-            const val CONNECTION = "scm:git:git://github.com/ResulSilay/Sentinel.git"
-            const val DEV_CONNECTION = "scm:git:ssh://github.com/ResulSilay/Sentinel.git"
+            const val URL = "https://github.com/rexiox/sentinel"
+            const val CONNECTION = "scm:git:git://github.com/rexiox/sentinel.git"
+            const val DEV_CONNECTION = "scm:git:ssh://github.com/rexiox/sentinel.git"
         }
     }
 }

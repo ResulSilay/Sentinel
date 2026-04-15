@@ -1,4 +1,4 @@
-package com.rs.sample.android.ui.main
+package co.rexiox.sample.android.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.rs.sample.android.R
+import co.rexiox.sample.android.R
 import kotlinx.coroutines.launch
 import sentinel.Sentinel
 import sentinel.all

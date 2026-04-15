@@ -1,8 +1,8 @@
-package com.rs.sample.android
+package co.rexiox.sample.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.rs.sample.android.ui.main.MainFragment
+import co.rexiox.sample.android.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

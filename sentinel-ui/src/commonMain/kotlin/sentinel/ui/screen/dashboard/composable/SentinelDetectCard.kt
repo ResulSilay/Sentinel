@@ -39,11 +39,11 @@ import sentinel.core.violation.SecurityViolation
 import sentinel.core.detector.Threat
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import com.rs.sentinel.ui.resources.Res
-import com.rs.sentinel.ui.resources.ic_circle_check
-import com.rs.sentinel.ui.resources.ic_circle_error
-import com.rs.sentinel.ui.resources.severity
-import com.rs.sentinel.ui.resources.total_severity
+import co.rexiox.sentinel.ui.resources.Res
+import co.rexiox.sentinel.ui.resources.ic_circle_check
+import co.rexiox.sentinel.ui.resources.ic_circle_error
+import co.rexiox.sentinel.ui.resources.severity
+import co.rexiox.sentinel.ui.resources.total_severity
 import kotlin.reflect.KClass
 
 @Composable

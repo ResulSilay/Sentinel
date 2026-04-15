@@ -40,8 +40,8 @@
 
     <string name="about_github_label">GitHub</string>
     <string name="about_github_url_text">Sentinel Source</string>
-    <string name="about_github_url">https://github.com/ResulSilay/Sentinel</string>
+    <string name="about_github_url">https://github.com/rexiox/sentinel</string>
     <string name="about_license_label">License</string>
     <string name="about_license_url_text">MIT License</string>
-    <string name="about_license_url">https://github.com/ResulSilay/Sentinel/blob/main/LICENSE</string>
+    <string name="about_license_url">https://github.com/rexiox/sentinel/blob/main/LICENSE</string>
 </resources>

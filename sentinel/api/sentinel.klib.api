@@ -5,7 +5,7 @@
 // - Show manifest properties: true
 // - Show declarations: true
 
-// Library unique name: <io.github.resulsilay:sentinel>
+// Library unique name: <co.rexiox:sentinel>
 final class sentinel/Builder { // sentinel/Builder|null[0]
     constructor <init>() // sentinel/Builder.<init>|<init>(){}[0]
 

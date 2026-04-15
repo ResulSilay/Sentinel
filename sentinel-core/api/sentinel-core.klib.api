@@ -5,7 +5,7 @@
 // - Show manifest properties: true
 // - Show declarations: true
 
-// Library unique name: <io.github.resulsilay:sentinel-core>
+// Library unique name: <co.rexiox:sentinel-core>
 final enum class sentinel.core.type/RiskLevel : kotlin/Enum<sentinel.core.type/RiskLevel> { // sentinel.core.type/RiskLevel|null[0]
     enum entry HIGH // sentinel.core.type/RiskLevel.HIGH|null[0]
     enum entry LOW // sentinel.core.type/RiskLevel.LOW|null[0]

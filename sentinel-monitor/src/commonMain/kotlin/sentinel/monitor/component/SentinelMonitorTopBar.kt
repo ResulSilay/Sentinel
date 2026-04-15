@@ -18,10 +18,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.rs.sentinel.monitor.resources.Res
-import com.rs.sentinel.monitor.resources.top_bar_threshold
-import com.rs.sentinel.monitor.resources.top_bar_title
-import com.rs.sentinel.monitor.resources.refresh_text
+import co.rexiox.sentinel.monitor.resources.Res
+import co.rexiox.sentinel.monitor.resources.top_bar_threshold
+import co.rexiox.sentinel.monitor.resources.top_bar_title
+import co.rexiox.sentinel.monitor.resources.refresh_text
 import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
