@@ -56,14 +56,14 @@ actual class Sentinel internal constructor(
      * Performs a comprehensive security inspection by aggregating results from all configured detectors.
      *
      * This method executes the detection logic defined in [detectors], collects the security threats,
-     * and generates an [IosSecurityReport]. The report is filtered based on the
+     * and generates an [SecurityReport]. The report is filtered based on the
      * sensitivity levels defined in [Config.threshold].
      *
      * If [Config.isLoggingEnabled] is set to true, the resulting report is automatically
      * forwarded to the [SentinelLogger].
      *
      * @return A [SecurityReport] containing the consolidated iOS-specific findings.
-     * @see IosSecurityReport
+     * @see SecurityReport
      * @see Config.threshold
      */
     actual suspend fun inspect(): SecurityReport = IosSecurityReport(

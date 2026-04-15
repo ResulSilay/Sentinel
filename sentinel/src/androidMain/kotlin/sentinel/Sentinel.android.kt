@@ -32,7 +32,7 @@ actual class Sentinel internal constructor(
      * Initializes the core security runtimes.
      * * This block triggers checks for:
      * - **Root:** Detecting unauthorized elevated system privileges.
-     * - **Hooking:** Identifying frameworks (e.g., Frida, Xposed) attempting to intercept runtime execution.
+     * - **Hooking:** Identifying frameworks (e.g., Frida) attempting to intercept runtime execution.
      * - **Debugging:** Monitoring for active debuggers attached to the process.
      */
     init {
@@ -63,14 +63,14 @@ actual class Sentinel internal constructor(
      * Performs a comprehensive security inspection by aggregating results from all configured detectors.
      *
      * This method executes the detection logic defined in [detectors], collects the security threats,
-     * and generates an [AndroidSecurityReport]. The report is filtered and processed based on the
+     * and generates an [SecurityReport]. The report is filtered and processed based on the
      * sensitivity levels defined in [Config.threshold].
      *
      * If [Config.isLoggingEnabled] is set to true, the resulting report is automatically
      * forwarded to the [SentinelLogger].
      *
      * @return A [SecurityReport] containing the consolidated findings of the inspection.
-     * @see AndroidSecurityReport
+     * @see SecurityReport
      * @see Config.threshold
      */
     actual suspend fun inspect(): SecurityReport = AndroidSecurityReport(

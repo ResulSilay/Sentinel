@@ -65,7 +65,7 @@ sealed class AndroidViolation(
         object MockSettingEnabled : Location(severity = 50)
 
         data class MockAppInstalled(val packages: List<String>) : Location(severity = 60) {
-            override val detail: String? = packages.toString()
+            override val detail: String = packages.toString()
         }
     }
 }
