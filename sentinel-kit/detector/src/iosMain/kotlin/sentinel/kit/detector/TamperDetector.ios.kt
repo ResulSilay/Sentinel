@@ -26,7 +26,7 @@ class TamperDetector(
 
         if (hashBytes.isNotEmpty()) {
             if (!verifyProvisioningHash(hashData = hashBytes.refTo(0), length = hashBytes.size)) {
-                add(element = Threat(violation = IosViolation.Tamper.SignatureMismatch))
+                add(element = Threat(violation = IosViolation.Tamper.ProvisioningHashMismatch))
             }
         }
     }

@@ -10,7 +10,7 @@ actual fun getViolations(): List<SecurityViolation> = listOf(
     IosViolation.Jailbreak.URLSchemes(),
 
     IosViolation.Tamper.BundleIdChanged,
-    IosViolation.Tamper.SignatureMismatch,
+    IosViolation.Tamper.ProvisioningHashMismatch,
 
     IosViolation.Hook.FrameworkDetected(),
     IosViolation.Hook.InlineHookDetected(),

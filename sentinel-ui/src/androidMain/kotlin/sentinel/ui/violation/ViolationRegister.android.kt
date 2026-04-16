@@ -10,13 +10,13 @@ actual fun getViolations(): List<SecurityViolation> = listOf(
     AndroidViolation.Root.AppInstalled(),
 
     AndroidViolation.Tamper.PackageNameChanged,
-    AndroidViolation.Tamper.DexIntegrityFailed,
     AndroidViolation.Tamper.SignatureMismatch,
 
     AndroidViolation.Hook.FrameworkDetected(),
 
     AndroidViolation.Emulator.Detected(),
 
+    AndroidViolation.Debugger.DebuggerAttached,
     AndroidViolation.Debugger.Debuggable,
     AndroidViolation.Debugger.TestKeys,
 
