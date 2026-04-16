@@ -25,7 +25,7 @@ Most mobile apps rely only on server-side security, but attacks happen on the cl
 Sentinel provides real-time, on-device threat detection with minimal performance overhead.
 
 ☑️️ Detect compromised devices (root / jailbreak)  
-☑️️ Detect runtime manipulation (Frida, Xposed)  
+☑️️ Detect runtime manipulation (Frida, Xposed (Android))  
 ☑️️ Detect app tampering & reverse engineering  
 ☑️️ Detect emulators & unsafe environments  
 ☑️️ Designed for Kotlin Multiplatform (KMP)
@@ -74,16 +74,19 @@ Sentinel provides real-time, on-device threat detection with minimal performance
 ♦️ **RASP-Based Threat Detection:** Real-time monitoring of dynamic instrumentation, hooking, and
 injection attempts.
 
-## Supported Threats by Platform
+## Security Coverage
 
-| Threat / Feature               | Android | iOS |
-|--------------------------------|:-------:|:---:|
-| Root / Jailbreak               |    ✅    |  ✅  |
-| Tamper Detection               |    ✅    |  ✅  |
-| Hooking Detection              |    ✅    |  ✅  |
-| Emulator / Simulator Detection |    ✅    |  ✅  |
-| Debugging Detection            |    ✅    |  ✅  |
-| Mock Location Abuse            |    ✅    |  ➖  |
+The Sentinel library provides comprehensive runtime security checks for both Android and iOS
+platforms.
+
+| Threat             |   | Android Features                                                           |   | iOS Features                                                                 |
+|:-------------------|:-:|:---------------------------------------------------------------------------|:-:|:-----------------------------------------------------------------------------|
+| **Root/Jailbreak** | ✅ | - Su Binary <br/>- Suspicious Mount <br/>- App Installed <br/>- Su Command | ✅ | - Sandbox <br/>- Suspicious Symlinks <br/>- App Installed <br/>- URL Schemes |
+| **Tamper**         | ✅ | - Package Name Changed <br/>- Signature Mismatch                           | ✅ | - Bundle Id Changed <br/>- Provisioning Hash Mismatch                        |
+| **Hooking**        | ✅ | - Framework Detected                                                       | ✅ | - Framework Detected <br/>- Inline Hook Detected                             |
+| **Environment**    | ✅ | - Emulator Detected                                                        | ✅ | - Simulator Detected                                                         |
+| **Debugger**       | ✅ | - Debugger Attached <br/>- Debuggable<br/>- Test Keys                      | ✅ | - Debugger Attached                                                          |
+| **Location**       | ✅ | - Mock Setting Enabled <br/>- Mock App Installed <br/>- isMocked()         | - |                                                                              |
 
 ## Quick Start
 
@@ -91,13 +94,22 @@ injection attempts.
 implementation("co.rexiox:sentinel:1.6.0-beta")
 ```
 
+You can use the following method to print the appId and appIntegrity values required for your
+security or configuration processes and assign them to the relevant fields within the config as a
+ByteList:
+
+```kotlin
+SentinelLogger.info(tag = "APP_ID", msg = sentinel.config.appId)
+SentinelLogger.info(tag = "APP_INTEGRITY", msg = sentinel.config.appIntegrity)
+```
+
 ### Android Usage
 
 ```kotlin
 val sentinel = Sentinel.configure(context = context) {
     config {
-        appId = Sentinel.Identity.appId.toByteList()
-        appIntegrity = Sentinel.Identity.signature?.toByteList()
+        appId = listOf<Byte>()
+        appIntegrity = listOf<Byte>()
         threshold = 90
         isLoggingEnabled = true
     }
@@ -117,8 +129,8 @@ val sentinel = Sentinel.configure(context = context) {
 ```kotlin
 val sentinel = Sentinel.configure {
     config {
-        appId = Sentinel.Identity.appId.toByteList()
-        appIntegrity = Sentinel.Identity.hash?.toByteList()
+        appId = listOf<Byte>()
+        appIntegrity = listOf<Byte>()
         threshold = 90
         isLoggingEnabled = true
     }
@@ -190,31 +202,31 @@ runtime tampering, and external manipulation activities in real time.
 ```kotlin
 sentinel.runtime {
     onCompromised {
-        info(msg = "Device integrity failed (Root/Jailbreak detected).")
+        print(msg = "Device integrity failed (Root/Jailbreak detected).")
     }
 
     onTampered {
-        info(msg = "App tampering detected.")
+        print(msg = "App tampering detected.")
     }
 
     onHooked {
-        info(msg = "Runtime hook detection.")
+        print(msg = "Runtime hook detection.")
     }
 
     onSimulated {
-        info(msg = "Running on Emulator/Simulator environment.")
+        print(msg = "Running on Emulator/Simulator environment.")
     }
 
     onDebugged {
-        info(msg = "Active debugging session detected.")
+        print(msg = "Active debugging session detected.")
     }
 
     onCritical { score ->
-        info(msg = "High risk score reached: $score")
+        print(msg = "High risk score reached: $score")
     }
 
     onSafe {
-        info(msg = "All systems nominal.")
+        print(msg = "All systems nominal.")
     }
 }
 ```
@@ -233,7 +245,7 @@ implementation("co.rexiox:sentinel-monitor:1.6.0-beta")
 ```kotlin
 SentinelMonitor.start(
     appId = sentinel.config.appId.orEmpty(),
-    appIntegrity = sentinel.config.hash.orEmpty(),
+    appIntegrity = sentinel.config.appIntegrity.orEmpty(),
     threshold = sentinel.config.threshold
 )
 ```
