@@ -14,7 +14,7 @@ import sentinel.all
 import sentinel.configure
 import sentinel.core.ext.toByteList
 import sentinel.core.logger.SentinelLogger
-import sentinel.core.logger.SentinelLogger.info
+import sentinel.core.logger.SentinelLogger.print
 
 class MainFragment : Fragment() {
 
@@ -47,31 +47,31 @@ class MainFragment : Fragment() {
 
         sentinel.runtime {
             onCompromised {
-                info(msg = "Device integrity failed (Root/Jailbreak detected).")
+                print(msg = "Device integrity failed (Root/Jailbreak detected).")
             }
 
             onTampered {
-                info(msg = "App tampering detected.")
+                print(msg = "App tampering detected.")
             }
 
             onHooked {
-                info(msg = "Runtime hook detection.")
+                print(msg = "Runtime hook detection.")
             }
 
             onSimulated {
-                info(msg = "Running on Emulator/Simulator environment.")
+                print(msg = "Running on Emulator/Simulator environment.")
             }
 
             onDebugged {
-                info(msg = "Active debugging session detected.")
+                print(msg = "Active debugging session detected.")
             }
 
             onCritical { score ->
-                info(msg = "High risk score reached: $score")
+                print(msg = "High risk score reached: $score")
             }
 
             onSafe {
-                info(msg = "All systems nominal.")
+                print(msg = "All systems nominal.")
             }
         }
     }
