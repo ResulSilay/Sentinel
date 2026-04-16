@@ -76,8 +76,8 @@ injection attempts.
 
 ## Security Coverage
 
-The Sentinel library provides comprehensive runtime security checks for both Android and iOS
-platforms.
+The Sentinel delivers broad-spectrum security coverage for Android and iOS, protecting
+against multiple threat types.
 
 | Threat             |   | Android Features                                                           |   | iOS Features                                                                 |
 |:-------------------|:-:|:---------------------------------------------------------------------------|:-:|:-----------------------------------------------------------------------------|
