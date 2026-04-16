@@ -1,4 +1,4 @@
-package co.rexiox.sample.android.ui.main
+package com.rs.sample.android.ui.main
 
 import androidx.lifecycle.ViewModel
 

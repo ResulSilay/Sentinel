@@ -10,7 +10,7 @@
         android:theme="@style/Theme.Sentinel">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.rs.sample.android.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

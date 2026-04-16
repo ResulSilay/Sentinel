@@ -1,4 +1,4 @@
-package co.rexiox.sample.android.ui.main
+package com.rs.sample.android.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
         val sentinel = Sentinel.configure(context = requireContext()) {
             config {
                 appId = Sentinel.Identity.appId.toByteList()
-                appIntegrity = Sentinel.Identity.signature.toByteList()
+                appIntegrity = Sentinel.Identity.appIntegrity.toByteList()
                 threshold = 20
                 // isLoggingEnabled = true
             }
