@@ -1,6 +1,7 @@
 package sentinel.core.report
 
 import sentinel.core.detector.Threat
+import sentinel.core.ext.categoryOf
 import sentinel.core.type.RiskLevel
 
 abstract class SecurityReport(
@@ -26,10 +27,13 @@ abstract class SecurityReport(
 
     val severity: Int by lazy {
         threats
-            .groupBy { it.violation::class }
-            .mapValues { entry -> entry.value.maxOf { it.violation.severity } }
+            .groupBy { threat ->
+                threat.violation.categoryOf()
+            }
             .values
-            .sum()
+            .sumOf { group ->
+                group.maxOf { threat -> threat.violation.severity }
+            }
     }
 
     val riskLevel: RiskLevel by lazy {
